@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Project Title Here</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Movie Genre Classification</h1>
+        <ul class="list-unstyled">
+          <li>Alaa Samir (1)</li>
+          <li>Bassant Ahmed (18)</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			A movie poster can convey a lot of details about the movie.By seeing only the poster we can tell the genre of the movie, its theme, and we can predict its rating and revenue.
+In this project we propose a multi labeled movie genre classification based on posters analysis, which is achieved through extracting some elements from the poster such as the color, facial expression, objects and many more.
+
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			The dataset files contain metadata for all 45,000 movies listed in the Full MovieLens Dataset. The dataset consists of movies released on or before July 2017.
+This dataset consists of the following files:
+		<ul>
+		  <li>movies_metadata.csv: 
+The main Movies Metadata file. Contains information on 45,000 movies featured in the Full MovieLens dataset. Features include posters, backdrops, budget, revenue, release dates, languages, production countries and companies.</li>
+		  <li>keywords.csv: 
+Contains the movie plot keywords for our MovieLens movies. Available in the form of a stringified JSON Object.</li>
+		  <li>credits.csv: 
+Consists of Cast and Crew Information for all our movies. Available in the form of a stringified JSON Object.</li>
+		  <li>links.csv: 
+The file that contains the TMDB and IMDB IDs of all the movies featured in the Full MovieLens dataset.</li>
+		  <li>links_small.csv: 
+Contains the TMDB and IMDB IDs of a small subset of 9,000 movies of the Full Dataset.</li>
+		  <li>ratings_small.csv: 
+The subset of 100,000 ratings from 700 users on 9,000 movies.
+The reason why we choose this dataset is that it is big enough so we can filter it to make it balanced which will achieve our proposed update for the model. We will select the top 1000 most popular movies in each genre based on popularity.</li>
+		</ul> 
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/examples.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+        	Multi-labeled K-nearest neighbours (2 different papers)
+		</p>
+		<ul>
+			<li>First model (34.28%): 40 NN model to predict 20 genres</li>
+			<li>Second model (57%): {GIST, DC, local dominant color, and CM}  features to classify 18 genres.</li>
+		</ul>
+		<p>
+        	Naïve Bayes (70%)
+		</p>
+		<ul>
+			<li>Convert multi-labeled data into single labeled data.
+18 genre using GIST features and dominant color features.</li>
+		</ul>
+		<p>
+        	RAKEL (Random k label set - 2^n)
+		</p>
+		<ul>
+			<li>33% precision and 32% recall.</li>
+		</ul>
+		<p>
+        	CNN VGG net  (50.5%)
+		</p>
+		<ul>
+			<li>4 genres only, Very precise</li>
+		</ul>
+		<p>
+        	CNN YOLO (18.73%)
+		</p>
+		<ul>
+			<li>7 layers CNN with 3 fully connected. Using data augmentation and predicting 23 genre.</li>
+		</ul>
+		<p>
+        	CNN ResNet34 (90%)
+		</p>
+		<ul>
+			<li>28,000 posters and 20 different genres</li>
+		</ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			Used pretrained ResNet34 network on imagenet and split data into 2 splits
+(22000, 22000)
+We replaced the final softmax layer with a sigmoid layer with 20 classes
+and changed the loss function to Binary Cross Entropy Loss.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/model.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+		<h5 class="mt-5">Update #1: Solving the problem of unbalanced dataset.
+		</h5>
+		<p>
+			We added new images to balance the dataset and avoid overfitting by
+			<ul>
+				<li>Random Zoom Augmentation</li>
+				<li>Random Brightness Augmentation</li>
+				<li>Random Rotation Augmentation</li>
+			</ul>
+Total number of movies for training and validation after augmentation are
+44182 image
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Using different models</h5>
+		<p>
+			As ResNet34 was overfitting the data, we used transfer learning on the following
+models as well and split data into 2 splits (22000, 22000).
+			<ul>
+				<li>ResNet18</li>
+				<li>ResNet50V2</li>
+				<li>VGG16</li>
+				<li>Custom model</li>
+				<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/model2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+			</ul>
+		</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			Baseline model: Training ResNet34 on 31538 image (Overfitting), Reaching accuracy 88% on validation
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    	<p>
+			ResNet34: Trained on 44182 image (Overfitting), Reaching accuracy 89% on validation
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    	<p>
+			ResNet34: Trained on 44182 image, Early stopping to prevent overfitting, Reaching accuracy 90.34% on validation
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results3.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    	<p>
+			Custom Architecture: Trained on both 31538 and 44182 dataset, Best accuracy reached was 89.35%
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results4.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    	<p>
+			VGG16: Trained on both 31538 and 44182 dataset, Best accuracy reached was 89.35%
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results5.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			These values are based on the ResNet34 model.
+		</p>
+
+	 	<ul>
+		  <li>Programming framework : Python </li>
+		  <li>Training hardware:  colab and azure</li>
+		  <li>Training time on colab : 4.5 hours</li>
+		  <li>Number of epochs: 50</li>
+		  <li>Time per epoch: 5 minutes</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			Before data augmentation
+			<ul>
+				<li>ResNet34 overfitted the data performing 99.9% accuracy on training and 88% on validation</li>
+				<li>VGG16 and the custom model achieved an accuracy of 91% on training and 89.35% on validation</li>
+				<li>Although ResNet34 was overfitting, it overcame the vanishing gradient problem, where both VGG16 and the custom model were stuck at 89.35% validation accuracy after running 300 epoch with all optimizers, due to using residual blocks.</li>
+			</ul>
+		</p>
+		<p>
+			After data augmentation
+			<ul>
+				<li>VGG16 and custom model had no change in performance</li>
+				<li>ResNet34 had the best validation accuracy of 90.34% after running 8 epochs (early stopping to avoid overfitting)  using 2 data splits each of 22k image.</li>
+			</ul>
+		</p>
+		<h2 class="mt-5"> Future work </h2>
+		<ul>
+			<li>Preprocessing data to remove low resolution images and movies that are inconsistent with the dataset i.e. cartoon movies, Indian and Turkish movies, etc.</li>
+			<li>Training 44k images in 1 pass without splitting is seen to have achieved better result than trying to split them and retraining using saved weights.</li>
+			<li>Use GANs or variational AED to generate images and increase dataset instead of using keras ImageDataGenerator to rotate, change brightness , and zoom int/out.</li>
+		</ul>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://www.kaggle.com/rounakbanik/the-movies-
+datase">The Movies Dataset.</a></li>
+		  <li><a href="https://www.researchgate.net/publication/282196711_Automatic_Movie_P
+osters_Classification_into_Genres">Automatic Movie Posters Classification into Genres 2015.</a></li>
+		  <li><a href="https://github.com/nddave/Movie-Genre-
+Prediction/blob/master/paper/predicting-movie-genres-paper.pdf">predicting movie genre from poster.</a></li>
+		<li><a href="https://www.cs.ccu.edu.tw/~wtchu/papers/2017MUSA-chu.pdf">Movie Genre Classification based on Poster Images with Deep Neural Networks 2017.</a></li>
+<li><a href="https://github.com/qubvel/classification_models">ResNet34 pretrained on imagenet and compatible with keras.</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Fantasy Premier League </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Fantasy Premier League</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Nasser abdelkareem Mohamed (9)</li>
+          <li>Abdelrahman Ahmed Mohamed Omran (36)</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			With over 6 million players, Fantasy Premier League is the biggest Fantasy Football game in the world, at this game users can choose their team which consists of real players from the Premier League each with a value and the user shouldn’t exceed the amount of money in his bank and based on the actual performance of these real players the user gets points, one thing is that each weak the user has the option to replace one of his players by another and this action is very critical and has a lot of factors to take into consideration like players current form , his next matches difficulty , player’s value , ownership (how many other players have this player ) and many other factors (like team captain) that makes one player better than another .
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+          <ul>
+            <li>season/cleaned_players.csv : The overview stats for the season</li>
+  <li>  season/gws/gw_number.csv : GW-specific stats for the particular season</li>
+    <li>season/gws/merged_gws.csv : GW-by-GW stats for each player in a single file</li>
+    <li>season/players/player_name/gws.csv : GW-by-GW stats for that specific player</li>
+    <li>season/players/player_name/history.csv : Prior seasons history stats for that specific player.</li>
+  </ul>
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<!-- <img src="resources/images/imagenet.jpeg" class="img-fluid text-center"> -->
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			Place few examples here to illustrate the dataset and your problem statement, add your model images below
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+    <div class="row">
+      <div class="col-lg-6 text-left">
+        <h1 align="center">Group 1</h1>
+      </div>
+        <div class="col-lg-6 text-right">
+          <h1 align="center">Group 2</h1>
+        </div>
+
+
+    </div>
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/f1.png" class="img-fluid text-center" title="gk">
+          <img src="resources/images/f2.png" class="img-fluid text-center" title="df">
+
+      </div>
+      <div class="row">
+        <div class="col-lg-6 text-left">
+          <h1 align="center">Group 3</h1>
+        </div>
+          <div class="col-lg-6 text-right">
+            <h1 align="center">Group 4 </h1>
+          </div>
+
+
+      </div>
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/f3.png" class="img-fluid" title="gk">
+            <img src="resources/images/f4.png" class="img-fluid" title="df">
+
+        </div>
+
+
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <!-- <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			State here state of the art models and their accuracies, you might need to do this by including images of tables
+		</p>
+
+		<br/>
+	    <div class="img-container" align="center">
+      		<img src="resources/images/state-of-the-art-results.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+      </div>
+    </div> -->
+
+    <!-- <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			Details about the model here, add your model images below
+		</p>
+
+		<br/>
+	    <div class="img-container" align="center">
+      		<img src="resources/images/model.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+			Add all the model updates you made here, need as many images as you wish
+		</p>
+
+		<h5 class="mt-5">Update #1: Use these models. Model per each line</h5>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/gk0.png" class="img-fluid text-center">
+          <img src="resources/images/df0.png" class="img-fluid text-center">
+          <img src="resources/images/md0.png" class="img-fluid text-center">
+          <img src="resources/images/st0.png" class="img-fluid text-center">
+
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<!-- <h5 class="mt-5">Update #2: Used new whatever</h5>
+		<p>
+			details here
+		</p>
+		<br/>
+	    <div class="img-container" align="center">
+      		<img src="resources/images/update2.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+      </div>
+    </div> -->
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			Add your results here, add graphs and images to illustrate it.
+			Compare your results to the original model and state of the art
+		</p>
+		<br/> <!-- Empty Line before the image -->
+    <div class="row">
+      <div class="col-lg-6 text-left">
+        <h1 align="center">GoalKeeper</h1>
+      </div>
+        <div class="col-lg-6 text-right">
+          <h1 align="center">Defender</h1>
+        </div>
+
+
+    </div>
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/gk.png" class="img-fluid text-center" title="gk">
+          <img src="resources/images/df.png" class="img-fluid text-center" title="df">
+
+    	</div>
+      <div class="row">
+        <div class="col-lg-6 text-left">
+          <h1 align="center">Midfield</h1>
+        </div>
+          <div class="col-lg-6 text-right">
+            <h1 align="center">Stricker</h1>
+          </div>
+
+
+      </div>
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/md.png" class="img-fluid text-center" title="gk">
+            <img src="resources/images/st.png" class="img-fluid text-center" title="df">
+
+        </div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <li>Keras</li>
+		  <li>Colab</li>
+		  <li>~40 min</li>
+		  <li>50 epoch per model</li>
+		  <li>2s per epoch</li>
+		</ul>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+        <h4>Lessons</h4>
+			<ul>
+<li>
+  Check if the train and test data have the same shape and from the same distribution.
+</li>
+<li>Study the importance of each features well.</li>
+      </ul>
+      <br></br>
+      <h4>Future Work</h4>
+<ul>
+  <li>Publish The application.</li>
+  <li>Study the weights of each feature to determine the best Input for each model per position.</li>
+</ul>
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	List all references here, the following are only examples
+	    </p>
+
+		<ol>
+		  <li><a href="http://www.google.com">Problem statement url</a></li>
+		  <li><a href="https://github.com/vaastav/Fantasy-Premier-League/tree/master/data">Dataset URL</a></li>
+		  <li><a href="http://www.google.com">Model Reference URL</a></li>
+		</ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

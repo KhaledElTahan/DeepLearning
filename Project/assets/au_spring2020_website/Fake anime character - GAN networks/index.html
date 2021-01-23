@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Fake anime generation</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Fake anime character - GAN networks</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Hussein - 3</li>
+          <li>Bassam Aiman - 17</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Inspired by human face generators; we are using GAN networks to generate new and random anime character faces.
+The goal of our project is to generate new faces those are visually acceptable and not easily discriminated as being generated using:
+			<ul>
+				<li>DGAN for random face generation</li>
+				<li>CGAN for conditional generation</li>
+			</ul>
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+        	For DGANs
+			<ul>
+				<li>Anime faces: The dataset consists of ~ 32,000 image, after the previous improvements and training for 12,000 steps these are the results.</li>
+				<li>The Simpsons: The dataset consists of Faces extracted from seasons 25-28, after the previous improvements and training for 10,000 steps these are the results.
+				</li>
+				<li>Yu-gi cards: The dataset consists of ~ 16,000 image, after the previous improvements and training for 9,000 steps these are the results.</li>
+			</ul>
+			For CGANs
+			<ul>
+				<li>Fashion-mnist grayscale dataset for testing initial CGAN implementation</li>
+				<li>Pokemon dataset: 7000 hand-cropped and labeled Pokemon images for classification</li>
+			</ul>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/animeFace.png" class="img-fluid text-center">
+      		<img src="resources/images/simpson.png" class="img-fluid text-center">
+      		<img src="resources/images/Yu-gi.png" class="img-fluid text-center">
+      		<img src="resources/images/pokemon.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			<ul>
+				<li>The input to the dataset is the collection of tightly cropped images around the sample and a vector of random numbers</li>
+				<li>Additional input for the CGAN is another vector that indicates the class/label (moustache - blue eyes - blonde hair) required to generate the image </li>
+				<li>The output is the newly generated fake images which the discriminator couldn't detect they are not real  </li>
+			</ul>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/prevResults.png" class="img-fluid text-center">
+      		<img src="resources/images/fashionMnist.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			Through using DGAN on the SIMPSONS dataset new fake characters could be generated however many of them were malformed and the resulted images can't be recognized as an acceptable faces
+			<ul>
+				<li>Note1: The accuracy value is not an indication to the resulted faces, it depends on the discriminator sharpness.</li>
+				<li>Note2: The original model is on bedrooms dataset but we want to generate faces.</li>
+			</ul>
+			The following faces is by using the original model on the Simpsons dataset
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/stateOfArt.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+    	<p>
+			Through using CGAN on the Fashion MNIST grayscale dataset new clothes are generated in the required class (tshirt - skirt - etc)
+			The following clothes are fake:
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/fashionMnist.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+        <p>
+        	<ul>
+        		<li>DGAN: we are going to use a well-tested model architecture proposed in 2015 that can be seen below. (Link in the references)</li>
+        		<li>CGAN: we found an implementation for the fashion MNIST dataset and used for testing then implemented a one on the pokemon dataset</li>
+        	</ul>
+			
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/originalModel.png" class="img-fluid text-center">
+      		<img src="resources/images/modelCGAN.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+		<h5 class="mt-5">DGAN-Update #1: Updating the learning rate</h5>
+		<p>
+			The original model needs +15000 steps to get an acceptable result on the anime dataset so we update it (0.00015 → 0.002) which takes +8000 step for an acceptable result.
+		</p>
+
+		<h5 class="mt-5">DGAN-Update #2: Added dropout layers with propability 0.1</h5>
+		<p>
+			To decrease overfitting on the orignal dataset
+		</p>
+
+		<h5 class="mt-5">DGAN-Update #3: Increase discriminator sharpness</h5>
+		<p>
+			The original architecture we used introduced some noise to the ground truth.
+			<ul>
+				<li>Yreal = 1 - rand()*0.2</li>
+				<li>Yfake = rand()*0.2</li>
+			</ul>
+			So to make the discriminator more sharp in discrimination between real and fake it became:
+			<ul>
+				<li>Yreal = 1 </li>
+				<li>Yfake = 0</li>
+			</ul>
+		</p>
+
+		<h5 class="mt-5">CGAN-Update #1: Grayscale to RGB</h5>
+		<p>
+			Transitioning from Grayscale to RGB was not easy; as the RGB images contained more parameters and different model alterations to accept the new channels.
+		</p>
+
+		<h5 class="mt-5">CGAN-Update #2: Latent space</h5>
+		<p>
+			One other hyperparameter was the latent space. We tried different combinations of 100/150/200 points but it didn’t provide any significant differences other than the increase in model size.
+		</p>
+		<br/>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			For the DGAN:
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/outSimpson.png" class="img-fluid text-center">
+      		<img src="resources/images/outAnime.png" class="img-fluid text-center">
+      		<img src="resources/images/outYugi.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+    	<p>
+			For the CGAN on the pokemon dataset:
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/pokemonCGAN.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Note: The data needed is very large (+20,000 images) so we can't load the data and go with epochs, instead we sample batches (128 image) and feed forward the network, train the discriminator then let the generator generate new image with a random initialized vector then the discriminator give a +ve score to the generator if it is found to be real, else it is given a -ve score, this is a one step
+		</p>
+
+	 	<ul>
+		  <li>We used google colab for the training</li>
+		  <li>The implementation and the models are in Keras</li>
+		  <li>Time DGAN: The training for the 10000 steps on google colab using GPU takes around 1.5 hours</li>
+		  <li>Time CGAN: 8 hours of interrupted training/li>
+		  <li>Number of steps fro DGAN: 10,000 steps on average</li>
+		  <li>Number of steps fro CGAN: Each 100 epoch takes approximately 1 hour</li>
+		  
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+	    	The DGAN have good and acceptable results that differs according to:
+			<ul>
+				<li>The model chosen</li>
+				<li>The dataset must be large enough (GANs are data hungry) otherwise a blurry image would appear</li>
+				<li>The model can't be very complex because each new layer added increases the data needed exponentially</li>
+				<li>The dataset shouldn't have many colors in the background and must have a well defined outline for the generator to capture it easily</li>
+			</ul>
+			The CGAN unfortunately, and after many trials, architecture modifications and hyperparameter tuning; we didn’t achieve any meaningful results other than random noise.
+			<ul>
+				<li>Transitioning from Grayscale to RGB. RGB images might require a more sophisticated architecture</li>
+				<li>Image pre-processing: CGAN might require different image pre-processing.</li>
+				<li>Model size: constrained by Google Colab’s resources, we had to make the compromise between the image/model size and the memory allocation/training time. Our model had more than 5 million parameters for just a 64*64 image.</li>
+				<li>The dataset: We think this is the greatest reason behind the results. The dataset contained 150 classes with about 60 images per class. The images were of no fixed context and of uncontrolled settings. From our previous experience with GANs, they are data hungry models that require huge amounts of data. But again, we were constrained by Colab’s resources and the training time.</li>
+			</ul>
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	List all references here, the following are only examples
+	    </p>
+
+		<ol>
+		  <li><a href="https://github.com/nikitaa30/Manga-GAN/tree/master/data">Anime faces dataset</a></li>
+		  <li><a href="https://www.kaggle.com/kostastokis/simpsons-faces">The simpsons dataset</a></li>
+		  <li><a href="https://www.kaggle.com/nalfmalf/yugioh-tcg">Yu-gi cards dataset</a></li>
+		  <li><a href="https://www.kaggle.com/lantian773030/pokemonclassification">Pokemon dataset</a></li>
+		  <li><a href="https://arxiv.org/abs/1511.06434">DGAN: Original model Reference URL</a></li>
+		  <li><a href="https://machinelearningmastery.com/how-to-develop-a-conditional-generative-adversarial-network-from-scratch/">CGAN: Original model Reference URL</a></li>
+		  <li><a href="https://colab.research.google.com/drive/1JH6D75aimP4YG8wJxBKBTRKoLyxqnZeR">DGAN training for fake anime face</a></li>
+		  <li><a href="https://colab.research.google.com/drive/1qkPWk2N-S1dv8zNaynLc3ySe4oGFrGNd?usp=sharing">Conditional Gan training</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

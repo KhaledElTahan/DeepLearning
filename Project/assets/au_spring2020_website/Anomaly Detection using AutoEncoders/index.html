@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Anomaly Detection using AutoEncoders</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Anomaly Detection using AutoEncoders</h1>
+        <ul class="list-unstyled">
+          <li>Abdelrahman Ibrahim #34</li>
+          <li>Mahmoud Gamal #62</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+    		<p>
+          Our motivation is to detect abnormal behaviour. Abnormal behaviour (outliers) can be found in bank transactions, credit cards, 
+          medical research, and communication. AutoEncoders can be used to successfully reconstruct normal transactions and sequences and badly
+          reconstruct anomalous transactions and sequences. The problem is AutoEncoders can generalize and start generating anomalies themselves.
+    		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			   Fraud detection on transactions data found on Kaggle 
+		    </p>
+
+        <ul>
+          <li>IEEE Transaction fraud [1]</li> 
+    		  <br/> <!-- Empty Line before the image -->
+    	    <div class="img-container" align="center"> <!-- Block parent element -->
+          		<img src="resources/images/cis-dataset.png" class="img-fluid text-center">
+        	</div>
+        	<br/> <!-- Empty Line after the image -->
+
+          <li>Credit card fraud detection [2]</li>
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/credit-card-dataset.jpg" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+        </ul> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+  			 Input and Output vectors of an anomaly
+  		  </p>
+
+  		  <br/> <!-- Empty Line before the image -->
+  	    <div class="img-container" align="center"> <!-- Block parent element -->
+        		<img src="resources/images/in-ex.png" class="img-fluid text-center w-25 p-3">
+            <img src="resources/images/out-ex.png" class="img-fluid text-center w-25 p-3">
+      	</div>
+        <p>
+         MSE: <strong>1906.5155</strong>
+        </p>
+      	<br/> <!-- Empty Line after the image -->
+
+        <p>
+         Input and Output vectors of an non anomaly
+        </p>
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/norm-in-ex.png" class="img-fluid text-center w-25 p-3">
+            <img src="resources/images/norm-out-ex.png" class="img-fluid text-center w-25 p-3">
+        </div>
+        <p>
+         MSE: <strong>2.621871</strong>
+        </p>
+        <br/> <!-- Empty Line after the image -->
+
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			     State of the art Memory Augmented AutoEncoder (MemAE) on image data MNIST and CIFAR-10
+		    </p>
+
+  		  <br/> <!-- Empty Line before the image -->
+  	    <div class="img-container" align="center"> <!-- Block parent element -->
+        		<img src="resources/images/mem-soa.png" class="img-fluid text-center w-25 p-3">
+      	</div>
+      	<br/> <!-- Empty Line after the image -->
+
+        <p>
+           State of the art AUC-ROC for Deviation Nets (DevNets) on various datasets
+        </p>
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/dev-soa.png" class="img-fluid text-center w-50 p-3">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			   A simple AutoEncoder model where its output is a reconstruction of the input. Anomalies are harder to reconstruct and yield a high Mean-Squared Error between
+         the anomaly and its reconstruction. In general, anomalies MSE difference should be higher than non-anomalous reconstruction. A threshold can be set so that higher 
+         values of MSE are considered anomalies. However; this construction generalizes over anomalies and start generating anomalies itself.
+		    </p>
+
+		  <br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/original-model.png" class="img-fluid text-center w-75 p-3">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+			   <ol>
+          <li>Using a memory element [3]</li>
+          <li>Using a deviation loss function [4]</li>
+          <li>Using the memory and deviation loss function together</li>
+          <li>Pretraining the AutoEncoders with custom loss function</li>
+         </ol>
+		    </p>
+
+        <!-- Update 1 -->
+    		<h5 class="mt-5">Update #1: Using a memory element</h5>
+    		<p>
+    			Adding a memory element to remember the most frequent normal patterns in the input data. With limited capacity, the model is forced to learn the most important patterns    
+    		</p>
+    		<br/> <!-- Empty Line before the image -->
+  	    <div class="img-container" align="center"> <!-- Block parent element -->
+        		<img src="resources/images/mem-model.png" class="img-fluid text-center w-75 p-3">
+      	</div>
+      	<br/> <!-- Empty Line after the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/mem-org.png" class="img-fluid text-center w-50 p-3">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <!-- Update 2 -->
+    		<h5 class="mt-5">Update #2: Using a deviation loss function</h5>
+    		<p>
+    			A classifier with 1 node at the end acting as regression. In this way, feature extraction is done by the AutoEncoder. The classification threshold is learned based
+          upon a prior distribution
+    		</p>
+    		<br/> <!-- Empty Line before the image -->
+  	    <div class="img-container" align="center"> <!-- Block parent element -->
+        		<img src="resources/images/dev-model.png" class="img-fluid text-center w-75 p-3">
+      	</div>
+      	<br/> <!-- Empty Line after the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/dev-org.png" class="img-fluid text-center w-25 p-0">
+            <img src="resources/images/dev-loss.png" class="img-fluid text-center w-25 p-0">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <!-- Update 3 -->
+        <h5 class="mt-5">Update #3: Using the memory and deviation loss function together</h5>
+        <p>
+          Combining both the memory and deviation loss function to create an end to end network pipeline
+        </p>
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/mem-dev-model.png" class="img-fluid text-center w-75 p-3">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <!-- Update 4 -->
+        <h5 class="mt-5">Update #4: Pretraining the AutoEncoders with custom loss function</h5>
+        <p>
+          A custom loss function used to pretrain the AutoEncoder used with the DevAE. Its purpose is to penalize the negative (anomalous) reconstructions.
+        </p>
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/custom-loss.png" class="img-fluid text-center w-75 p-3">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+    			Results shown for Memory Augmented AutoEncoder (MemAE) and Normal AutoEncoder with Deviation Loss (DevAE)
+    		</p>
+
+		    <br/> <!-- Empty Line before the image -->
+  	    <div class="img-container" align="center"> <!-- Block parent element -->
+        	<img src="resources/images/table1.png" class="img-fluid text-center w-25 p-3">
+          <img src="resources/images/table2.png" class="img-fluid text-center w-25 p-3">
+      	</div>
+      	<br/> <!-- Empty Line after the image -->
+
+        <p>
+          Training Losses for MemAE and DevAE
+        </p>
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/train-mem-loss.png" class="img-fluid text-center w-50 p-5">
+          <img src="resources/images/train-dev-loss.png" class="img-fluid text-center w-50 p-5">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+         <p>
+          Accuracy for DevAE
+        </p>
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/train-dev-acc.png" class="img-fluid text-center w-50 p-5">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+          MemAE and the AE in DevAE are trained on all non anomalous data. The predictor of the DevAE is trained over anomalous and non-anomalous data. MemAE threshold is a hyper-parameter set based upon the largest linear separation
+        </p>
+
+        <h5 class="mt-5">Training Framework</h5>
+    	 	<ul>
+    		  <li>Framework: Keras</li>
+    		  <li>Runner: Colab TPU</li>
+    		  <li>Hardware Specs: Google Backend TPU</li>
+    		</ul>
+
+        <h5 class="mt-5">MemAE Hyper-parameters</h5>
+        <ul>
+          <li>Memory Width (M): 10</li>
+          <li>Threshold: 10</li>
+          <li>Batch Size: 32</li>
+          <li>Epochs: 20</li>
+          <li>Optimizer: Adadelta</li>
+          <li>Learning rate: 0.001 (default)</li>
+
+        </ul>
+
+        <h5 class="mt-5">DevAE Hyper-parameters</h5>
+        <h6 class="mt-6">AE Hyper-parameters</h6>
+        <ul>
+          <li>Batch Size: 1024</li>
+          <li>Epochs: 1000</li>
+          <li>Optimizer: Adagrad</li>
+          <li>Learning rate: 0.001 (default)</li>
+        </ul>
+
+        <h6 class="mt-6">Deviation Loss Hyper-parameters</h6>
+        <ul>
+          <li>Prior: N(0,1)</li>
+          <li>Sampling size (L): 5000</li>
+          <li>Z-score CI parameter (a): 5</li>
+          <li>Batch Size: 1024</li>
+          <li>Epochs: 20</li>
+          <li>Optimizer: Adam</li>
+          <li>Learning rate: 0.001 (default)</li>
+        </ul>
+
+        <h6 class="mt-6">Predictor Hyper-parameters</h6>
+        <ul>
+          <li>Batch Size: 64</li>
+          <li>Epochs: 200</li>
+          <li>Optimizer: Adadelta</li>
+          <li>Learning rate: 0.001 (default)</li>
+        </ul>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+        <ol>
+          <li>Curse of dimensionality is a real issue and requires domain knowledge. It is very hard to pinpoint a set of features on which a model can learn if a behaviour is anomalous or not.</li>
+<li>It is not necessarily true that using the memory and dev loss together improve the detection problem</li>
+<li>One can enforce a probabilistic distribution on the output of his network and judge by performing statistical tests</li>
+<li>Oversampling and undersampling are very effective go to solutions when it comes to unbalanced data</li>
+<li>Training the model on several stages until it is fully complete is a useful technique.</li>
+<li>In situations like this a trade off between Precision and recall arises.</li>
+        </ol>
+		  </p>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://www.kaggle.com/c/ieee-fraud-detection/data ">Credit Card Fraud dataset</a></li>
+		  <li><a href="https://www.kaggle.com/mlg-ulb/creditcardfraud ">IEEE Fraud Transactions dataset</a></li>
+		  <li><a href="https://arxiv.org/abs/1904.02639 ">Memory Usage in Neural Networks</a></li>
+      <li><a href="https://arxiv.org/abs/1911.08623">Dev Nets</a></li>
+		</ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

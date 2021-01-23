@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Project Title Here</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h1 class="mt-5">Image Colorization</h1>
+              <ul class="list-unstyled">
+                  <li>Eshraq Ibrahim 12</li>
+                  <li>Nancy Abd Elkarem 70</li>
+              </ul>
+          </div>
+      </div>
+
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Problem Statement</h2>
+              <p>
+                  Converting from gray scale image to colorized image which provides more insights about its semantics. Our goal is to provide a realistic colorized image that fools the human eye.
+              </p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Dataset</h2>
+
+              <p>
+                  We used imageNet which Consists of 14,000,000 images. But, We used only a subset of it (20,500 images) as we don’t have much resources to store and train this large number of images.
+              </p>
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/imagenet.jpeg" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Input/Output Examples</h2>
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/image1.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/image2.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/image3.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Timeline</h2>
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/timeline.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Data Preprocessing</h2>
+              <ul>
+                  <li> To be able to train in batches, we resize all images to 299*299, then extract the image embedding using a pre-trained Inception model.</li>
+                  <li>
+                      Converting to TFRecords, because of storing the images and the embedding as separate files on disk, would impact the performances during training,
+                      so all the image-embedding pairs are stored in binary format in large continuous TFRecords.
+                      <dl>
+                          <dd>
+                              One training example is made of:
+                          </dd>
+                          <dd>- 1 image L (299x299x1)</dd>
+                          <dd>- 1 image a*b* (299x299x2)</dd>
+                          <dd>- 1 embedding (1001x1)</dd>
+                      </dl>
+                  </li>
+                  <li>Some tfrecords are selected to be used as a validation set.</li>
+              </ul>
+
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Evaluation Metrics</h2>
+              <h5 class="mt-5">
+                  Mean square Error
+              </h5>
+
+              <p>
+                  Calculates the mean square error between the ground truth image and the generated colored image.
+              </p>
+              <h5 class="mt-5">
+                  Human Evaluation
+              </h5>
+
+              <p>
+                  Conducted a <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVksvHhjZ-JuRldKUZAO3Z-Wkc4u7_7N86VGbXy120te5iyg/viewform">turing test</a>  for 40 different grey scale images and asked about the Best colored Image
+                  and which Images you didn’t feel it was reliable.
+              </p>
+
+
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">State of the art</h2>
+
+              <p>
+                  This problem statement doesn't have a state of the art model as its evaluation methods are weak. <br />
+                  <br /><b>The mean square error</b> measures the difference between the generated images and the ground truth image and that is not reliable as it may choose another colors and color the image in a reliable way. In this case the mean square error will be large.
+                  <br /><b>Human Evaluation</b> depends on the subset of the dataset the conductor of the test choose and it may contains the success cases for his model.
+              </p>
+
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Orignial Model from Literature</h2>
+
+              <dl>
+                  <h5 class="mt-5">Original Model details:</h5>
+                  <dd>Encoder:</dd>
+                  <ul>
+                      <li>Obtains the mid-level features.</li>
+                      <li>processes H × W gray-scale images and outputs a H/8 × W/8 × 512 feature representation.</li>
+                  </ul>
+                  <dd>Feature Extractor:</dd>
+                  <ul>
+                      <li>Obtains the high-level features.</li>
+                      <li>use a pre-trained Inception-ResNetv2 network.</li>
+                  </ul>
+                  <dd>Fusion:</dd>
+                  <ul>
+                      <li>Takes the feature vector from Inception and attaches it to the feature volume outputted by the encoder.</li>
+                      <li>Generates a feature volume of dimension H/8×W/8×256.</li>
+                  </ul>
+                  <dd>Decoder:</dd>
+                  <ul>
+                      <li>Takes the feature volume outputted of dimension H/8×W/8×256 from the fusion. </li>
+                      <li>Applies a series of convolutional and up-sampling layers in order to obtain a final image with dimension H×W×2.</li>
+                  </ul>
+
+              </dl>
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/original.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <h5 class="mt-5">Follow up model:</h5>
+              <p>
+                  It uses ensemble colorization where separate colorizations are performed by two different CNNs (deep colorization model and feedforward colorization model)
+                  then a refinement network combines and refines the results.
+              </p>
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/followup.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Proposed Updates</h2>
+
+              <p>
+                  We trained and evaluated 4 different architectures by making variations on the follow up model:
+              </p>
+
+              <h5 class="mt-5">Architecture 1</h5>
+              <ul>
+                  <li>Deep colorization network </li>
+                  <li>Refinement stage</li>
+              </ul>
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/model1.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <h5 class="mt-5">Architecture 2</h5>
+              <ul>
+                  <li>Deep colorization network</li>
+                  <li>Deep colorization network (different hyperparameters)</li>
+                  <li>Concatenation</li>
+                  <li>Refinement stage</li>
+              </ul>
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/model2.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <h5 class="mt-5">Architecture 3</h5>
+              <ul>
+                  <li>Deep colorization network</li>
+                  <li>Feed forward network</li>
+                  <li>Feed forward network (different hyperparameters)</li>
+                  <li>Concatenation</li>
+                  <li>Refinement stage</li>
+              </ul>
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/model3.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <h5 class="mt-5">Architecture 4</h5>
+              <ul>
+                  <li>Deep colorization network</li>
+                  <li>Feed forward network</li>
+                  <li>Concatenation</li>
+                  <li>Deep colorization network</li>
+              </ul>
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/model4.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <h5 class="mt-5">HyperParameter Tuning</h5>
+              <dl>
+                  <dd>- 200 epochs</dd>
+                  <dd>- 20500 Training Images</dd>
+                  <dd>- Batch size 41</dd>
+                  <dd>- Learning rate 0.0001</dd>
+                  <dd>- Filters sizes (3,3)</dd>
+                  <dd>- Stride Length 2</dd>
+                  <dd>- Optimizer Adam</dd>
+
+              </dl>
+
+          </div>
+      </div>
+
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Results</h2>
+              <h5 class="mt-5">Mean square Error</h5>
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph1.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph2.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+
+              <h5 class="mt-5">
+                  Human Evaluation
+              </h5>
+
+              <h6 class="mt-5">
+                  Votes for Best Model
+              </h6>
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph3.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph4.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph5.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph6.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+
+
+              <h6 class="mt-5">
+                  Votes for Non-Reliability
+              </h6>
+
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph7.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+              <br /> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/graph8.png" class="img-fluid text-center">
+              </div>
+              <br /> <!-- Empty Line after the image -->
+
+          </div>
+      </div>
+
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Technical report</h2>
+              <ul>
+                  <li><b>Programming framework</b> <br /> -> Keras, Python</li>
+                  <li><b>Training hardware</b> <br /> -> colab then upgraded it to colab pro</li>
+                  <li><b>Training time</b> <br /> -> 26 Hours</li>
+                  <li><b>Number of epochs</b> <br /> -> 200 epoch</li>
+                  <li><b> Batch size</b> <br /> -> 41 image</li>
+                  <li><b>Time per epoch</b><br /> -> 8 minutes </li>
+                  <li>
+                      <b>Time per batch</b><br /> -> 1 second
+                  </li>
+                  <li>
+                      <b>Number of batches per epoch </b><br /> -> 500 batches
+                  </li>
+                  <li>
+                      <b>Faced difficulties</b> <br /> -> We ran out of resources when we used a large dataset so we had to buy storage on google drive and used colab pro as the RAM of free colab couldn’t handle the large dataset.
+                      <br /> -> The baseline code is old and very deprecated so it took days to refactor the code and reproduce its results.
+                      The Imagenet dataset official website link is deprecated.
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Conclusion</h2>
+
+              <p>
+                  Architecture 1 is the best model according to the human evaluation, and even the mean square error, it out performed both the baseline and follow up work.
+                  Architecture 3 is the worst model according to the human evaluation and it has a higher score than the follow up work.
+              </p>
+              <h5 class="mt-5">
+                  Order of models (Best MSE - Worst MSE)
+              </h5>
+
+              <ul>
+                  <li>
+                      Architecture 4
+                  </li>
+                  <li><b>Architecture 1</b></li>
+                  <li>Follow Up Work</li>
+                  <li><b>Architecture 3</b></li>
+                  <li>Architecture 2</li>
+                  <li>
+                      Baseline
+                  </li>
+              </ul>
+              <h5 class="mt-5">
+                  Order of models (Best HE - Worst HE)
+
+              </h5>
+
+              <ul>
+                  <li><b>Architecture 1</b></li>
+                  <li>Architecture 2</li>
+                  <li>Baseline</li>
+                  <li>Follow up work</li>
+                  <li>Architecture 4</li>
+                  <li><b>Architecture 3</b></li>
+              </ul>
+              <p>So, It seems that the feedforward stage doesn’t introduce a good impact on the colored image.</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Future Work</h2>
+
+              <p>
+                  We would train the model for more number of epochs.
+                  We would  try to extend our resources to be able to download  larger dataset to get better results as the larger the dataset, the better the model trains.
+              </p>
+
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <h2 class="mt-5">References</h2>
+              <ol>
+                  <li><a href="https://arxiv.org/pdf/1712.03400v1.pdf">Deep Koalarization: Image Colorization using CNNs and Inception-Resnet-v2 (2017) paper</a></li>
+
+
+              </ol>
+          </div>
+      </div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="image colorization project">
+  <meta name="author" content="Mohamed Mashaal, Youssef Ali">
+
+  <title>Image Colorization</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Image Colorization</h1>
+        <ul class="list-unstyled">
+          <li>Mohamed Mashaal (61)</li>
+          <li>Youssef Ali (74)</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Image colorization is the process of assigning colors to a grayscale image to make it more appealing and meaningful. This is known to be a complex task that often requires prior  knowledge about the image content and manual adjustments in order to achieve good results.<br>
+      Furthermore, since objects can be in different colors, there are many possible ways to assign colors to pixels in an image, which means there is no unique solution to this problem.<br>
+      There are two main approaches for image colorization: one that requires users to assign colors to some regions and extends such information to the whole image, and another one that tries to learn the color of each pixel from a colored image with similar content. We will use the latter approach.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			We use 30K images of the Places dataset.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/places.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			Given the lightness channel L, we want to predict the corresponding a and b color channels of the image in the Lab colorspace.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img width="70%" src="resources/images/input_output.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/input_output2.png" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Comparison of Related Work</h2>
+
+        <p>
+			Solutions to our proposed problem can be considered to be subjective as the colorization task doesn’t have a unique solution.<br>
+      In the following table, we compare the related work that we investigated in terms of: the loss function used, the network architecture (briefly), the used dataset and how many images have they used.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/comp_rltd_wrk.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <ul>
+          <li>“Colorful Image Colorization” by Richard Zhang, Phillip Isola and Alexei A. Efros</li>
+          <li>Important contributions of this paper
+              <ul>
+                <li>Designing an appropriate loss function (Categorical Cross-entropy with class rebalancing)</li>
+                <li>Testing framework (Amazon Mechanical Turk)</li>
+                <li>1 milion color photos for training</li>
+              </ul>
+          </li>
+        </ul>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/org_model.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+		<h5 class="mt-5">Update #1: Used a simpler loss function</h5>
+		<p>
+			Due to memory resource limitations, we used a simpler approach than the original paper. We dealt with the problem as a regression task, not as a classification task as the paper have done.<br>
+      So, we used regression loss (mean squared error) instead of categorical cross entropy.
+		</p>
+		<!-- <br/>
+	    <div class="img-container" align="center">
+      		<img src="resources/images/update1.jpeg" class="img-fluid text-center">
+    	</div>
+    	<br/> -->
+		<h5 class="mt-5">Update #2: Replaced the original model's last layer</h5>
+		<p>
+			As a result to update #1, we replaced the original model's last layer (softmax layer) by 2 layers (flatten + fully connected).
+		</p>
+		<!-- <br/>
+      <div class="img-container" align="center">
+          <img src="resources/images/update1.jpeg" class="img-fluid text-center">
+      </div>
+      <br/> -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/our_results.png" class="img-fluid text-center">
+      </div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <!-- <p>
+			Here you will detail the details related to training, for example:
+		</p> -->
+
+	 	<ul>
+		  <li><b>Programming framework:</b> Tensorflow, Keras</li>
+		  <li><b>Training hardware:</b> Google Colab</li>
+		  <li><b>Training time:</b> ~ 5 hours</li>
+		  <li><b>Number of epochs:</b> 100</li>
+		  <li><b>Time per epoch:</b> ~ 174 seconds</li>
+<!-- 		  <li>Any other important detail or difficulties</li>
+ -->		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+      We were not able to reproduce the results of the paper, although, we obtained a reasonably good results.<br>
+We believe this is because we didn’t enough computing and memory resources that forced us to not follow the proposed model in detail, as we simplified the loss function used in the paper.<br>
+			Image Colorization task requires many resources (in terms of dataset size, memory, processing and time) to obtain better results.
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://richzhang.github.io/colorization/">Colorful Image Colorization Paper (Official Website)</a></li>
+		  <li><a href="http://data.csail.mit.edu/places/places205/testSetPlaces205_resize.tar.gz">30K Images of Places Dataset</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

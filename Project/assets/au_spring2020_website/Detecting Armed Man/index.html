@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Detecting Armed Man</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Detecting Armed Man</h1>
+        <ul class="list-unstyled">
+          <li>Akram Hesham Ahmed #14</li>
+          <li>Kamal Abd El Aziz #46</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Life threatening situations such as armed robberies and lone wolf attacks could
+      take place any time which leaves innocent people defenseless and without any proper
+      arrangement to face the situation, what we are proposing is a system that detects
+      active shooters carrying any type of arms and gives their number and coordinates.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			We have two datasets:
+      First Type: is from Kaggle and contains 333 images that represents armed men (one or more per image) on the scene of action.
+      Second Type:  one contains 1200 images of different type of guns (one per image) 
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/94.jpeg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+      <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/1578.jpg" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/inputOutput.jpeg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+      <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/input2.jpeg" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+      
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/stateart.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/models.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			After concatenating the two datasets and having as train and validation 200 images from the first type and 1000 from the second type, the model detected 5% from the test dataset of the first type and 90% from the test dataset of the second type.
+		</p>
+
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+      
+
+	 	<ul>
+		  <li>YOLO implmenetation using keras and tensorflow</li>
+		  <li>The training was done using google colab</li>
+		  <li>Four hours</li>
+		  <li>maximum number of epochs reached was 200</li>
+		  <li>about 1.2 min/epoch</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			YOLO model needed more dataset with more diversity to get better performance on general cases.
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/716.pdf">Developing a Real-Time Gun Detection Classifier by Justin Lai and Sydney Maples from Stanford University</a></li>
+		  <li><a href="https://www.kaggle.com/issaisasank/guns-object-detection/data">Dataset URL</a></li>
+		  <li><a href="https://cv-tricks.com/object-detection/faster-r-cnn-yolo-ssd/">Guide to Object Detection using Deep Learning : YOLO,SSD</a></li>
+      <li><a href="https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab">Understanding SSD MultiBox </a></li>
+      <li><a href="https://github.com/qqwweee/keras-yolo3">Implementation of YOLO</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

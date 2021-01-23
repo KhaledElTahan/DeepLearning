@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Arabic Word Diacritization</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Arabic Word Diacritization</h1>
+        <ul class="list-unstyled">
+          <li>Ayman Ahmed Samy #15</li>
+          <li>Khaled Abdelfattah #22</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+      <ul>
+        <li>
+          In Arabic and many other languages, diacritics are added to the characters of a word in order to convey certain information about the meaning of the word as a whole and its place within the sentence
+        </li>
+        <li>
+          Arabic Text Diacritization is an important problem with various applications such as text to speech
+        </li>
+        <li>
+          Diacritics are important in Arabic it changes the meaning of the word and changes the pronunciation as well
+        </li>
+        <li>
+          Word’s diacritics can carry various types of information about the word itself, like its part of speech tag, the semantic meaning and the pronunciation. Intuitively, providing such extra features in NLP tasks has the potential to improve the results of any system
+        </li>
+      </ul>
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+          <ul>
+            <li>
+              The dataset of (Fadel et al., 2019) consists of about 2.3M words spread over 55K lines
+            </li>
+            <li>
+              The extra training dataset is extracted from the Classical Arabic (CA) part of the Tashkeela Corpus and the Holy Quran (HQ). 
+            </li>
+            <li>
+              They develop an auxiliary test set extracted from three books from Al-Shamela Library
+              <ul>
+                <li>
+                  تاج العروس من جواهر القاموس
+                </li>
+                <li>
+                  الفتاوى الكبرى لابن تيمية
+                </li>
+                <li>
+                  فتح الباري في شرح صحيح البخاري
+                </li>
+              </ul>
+            </li>
+            <li>
+              Evaluation used: <br>
+              <ul>
+                <li>
+                  (DER), which is “the percentage of misclassified Arabic characters regardless of whether the character has 0, 1 or 2 diacritics”
+                </li>
+                <li>
+                  (WER), which is “the percentage of Arabic words which have at least one misclassified Arabic character”
+                </li>
+                <li>
+                  DER/WER are computed in four different ways in the literature depending on whether the last character of each word 
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </p>
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/data-set.png" class="img-fluid text-center">
+            <p>Dataset Details</p>
+          </div>
+        <br/> <!-- Empty Line after the image -->
+        
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/extra-train.png" class="img-fluid text-center">
+            <p>Extra Train Dataset Details</p>
+          </div>
+        <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/samples.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+          State of the art accuracies depends on comparisons between many models like a feed-forward network, a recurrent network, even not machine learning models.  <br>
+          They count on variant approaches while comparing models' results like DER/WER 
+        </p>
+        <ul>
+          <li>
+            Note, This is the results of their best model which was Block-Normalized Gradient (BNG) Model with RNN
+          </li>
+        </ul>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/state-of-the-art-2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Original Model from Literature</h2>
+        <ul>
+          <li>
+            <p>
+              Feed-Forward Neural Network Model
+            </p>
+            <ul>
+              <li>
+                The model has five hidden layers with 728K trainable parameters
+              </li>
+              <li>
+                100-hot input embeddings layer to learn feature vectors for each character through the training process
+              </li>
+              <li>
+                Performed much better than the best rule-based Diacritization, Mishakl DER: 13.78% vs FFNN Embeddings model DER: 4.06% 
+              </li>
+            </ul>
+    
+            <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources/images/ffnn.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+          </li>
+          <li>
+            <p>
+              Recurrent Neural Network
+            </p>
+            <ul>
+              <li>
+                They used two Bidirectional CuD-NN Long Short-Term Memory (BiCuDNNLSTM) as well as 256 hidden units per layer 
+              </li>
+            </ul>
+
+            <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources/images/rnn.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+          Add all the model updates you made here, need as many images as you wish
+        </p>
+
+		<h5 class="mt-5">Update #1: Used Word-Embeddings with Character-Embeddings</h5>
+		<p>
+			<ul>
+        <li>
+          Add word embeddings with the already used chrachter embeddings on top of recurrent neural network model
+        </li>
+        <li>
+          Used Aravec model to get the word-embeddings
+        </li>
+      </ul>
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/rnn_with_word_embedding.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Used a Convolution-Neural-Network Model</h5>
+		<p>
+      We used variant number of CNN architectures with both 1D and 2D approaches to compare like:
+      <ul>
+        <li>
+          Le-Net architecture
+        </li>
+        <li>
+          Alex-Net architecture
+        </li>
+        <li>
+          Our own architecture
+        </li>
+      </ul>
+    </p>
+      
+      <h5 class="mt-5">Update #3: Used a Convolution-Neural-Network Model with Word-Embeddings</h5>
+      <p>
+        We used a word-embeddings layer concatenated with the character-embeddings layer on top of Le-Net architecture
+      </p>
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/cnn-arch.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+    </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+        <ul>
+          <li>
+            <p>
+              Best accuracy we got so far is from the <b> Recurrent Neural Network Model with Word and Charachter Embeddings</b>
+            </p>
+            <ul>
+              <li>
+                After only 25 epochs trained we reached very close accuracy to the state-of-the-art accuracy
+              </li>
+            </ul>
+    
+            <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources/images/rnn_we_acc.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+          </li>
+          <li>
+            <p>
+              Results of CNN architecture
+            </p>
+            <ul>
+              <li>
+                This is not the best accuracy we reached using CNN approaches, but we concluded that the word-embeddings is a promosing technique to optimize for a better accuracy
+              </li>
+            </ul>
+    
+            <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources/images/cnn_we_acc.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+          
+        </p>
+
+	 	<ul>
+		  <li>Programming framework: We implemented our models using tensorflow with keras API</li>
+		  <li>Training hardware: We used both google colab and google cloud</li>
+		  <li>Training time: We trained arround 25-30 epochs per each model for maximum, it took arround 30 hours</li>
+		  <li>Number of epochs: 25-30 per each model</li>
+		  <li>Time per epoch: With extra dataset it took arround one hour</li>
+      <li>We faced a computational problems with google colab (even by saving checkpoints and reloading models) So, we went to a free plan on google cloud (300$) which helped us a lot.
+      </li>
+    </ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+      <ul>
+        <li>
+          <b>Conclusions</b>
+          <ul>
+            <li>
+              RNN was superior for our problem was way better than CNN approaches
+            </li>
+            <li>
+              Using word-embeddings is a promising technique to enhance model's performance
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>Future Work</b>
+          <ul>
+            <li>
+              Experiment different architectures using word embedding.
+            </li>
+            <li>
+              <ul>
+                <li>
+                  Use the results from the model in other problems:
+                </li>
+                <li>
+                  Text-to-speech
+                </li>
+                <li>
+                  Machine translation
+                </li>
+                <li>
+                  NLP
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+	    
+      <ul>
+        <li>
+          <b>Acknowledgments</b> 
+          <ul>
+            <li>
+              It was fun working on google cloud not just for training our models but use it as a running server for our product
+            </li>
+            <li>
+              In Deep Learning
+              <ul>
+                <li>
+                  We learned alot of intersing and new topics like: weight-normalization, 
+                  customized optimizers, learning rate tunning while training, and understanding and using the Aravec liberary for Arabic-Word-Embeddings
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://arxiv.org/pdf/1911.03531.pdf">Ali Fadel, et al. (2019) Neural Arabic Text Diacritization: State of the Art Results and a NovelApproach for Machine Translation</a></li>
+		  <li><a href="https://arxiv.org/pdf/1905.01965.pdf">Ali Fadel, et al.(2019) Arabic Text Diacritization Using Deep NeuralNetworks</a></li>
+      <li><a href="https://pdfs.semanticscholar.org/4be8/078e27046c6b65e17deb4b850f065606e1d4.pdf">Arabic Diacritization with Recurrent Neural Networks</a></li>
+      <li><a href="https://www.researchgate.net/publication/319880027_AraVec_A_set_of_Arabic_Word_Embedding_Models_for_use_in_Arabic_NLP">AraVec: A set of Arabic Word Embedding Models for use in Arabic NLP</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

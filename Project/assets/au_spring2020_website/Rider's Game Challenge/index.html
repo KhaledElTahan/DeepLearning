@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Rider's Game Challenge</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<style type="text/css">
+  
+#image{
+  border: 1px solid #000;
+  padding: 0;
+}
+
+
+</style>
+
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Rider's Game Challenge</h1>
+        <ul class="list-unstyled">
+          <li>Morcos Sameh</li>
+          <li>Mahmoud Hesham</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Games represent man vs machine eternal battle, the machine runs the game for the human and challanges him to beat the game. But, a new battle emerged, the machine vs machine battle. The first machine runs a game and challenges the other machine to beat it. Cannon game is the game chosen by the first machine and the other machine will try to beat it using two methods. Cannon Game is simply a game that simulates an air defense system where a cannon tries to take down incoming hostiles. First method is Deep Reinforcement Learning where the machine plays the game and learns from its mistakes. Second method is using a pretrained CNN model where the machine takes a screenshot of the current game state, inputs it to the model and uses the result provided by the model.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			     This is a dataset we collected to use in training the CNN model, it consists of images that represent the game states. For each image there is a label consisting of x and y coordinates which represent the ground truth for the current state. The coordinates was chosen by solving the projectile equations of both x and y. Dataset consists of 10,000 images, split into 6,000 for training, 2,000 
+           for validation and 2,000 for testing.
+		    </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="container"> <!-- Block parent element -->
+          <div class="row">
+              <img src="resources/images/Dataset1.png" border="1" alt="" id="image" class="col-sm-4">
+              <img src="resources/images/Dataset2.png" border="1" alt="" id="image" class="col-sm-4">
+              <img src="resources/images/Dataset3.png" border="1" alt="" id="image" class="col-sm-4">
+          </div>
+      		<div class="row">
+              <p class="col-sm-4">x: 152.5 y: 52.88546461649379</p>
+              <p class="col-sm-4">x: -11.0 y: 170.6796053408957</p>
+              <p class="col-sm-4">x: 46.5 y: 148.44665262073892</p>
+          </div>
+          <div class="row">
+              <img src="resources/images/Dataset4.png" border="1" alt="" id="image" class="col-sm-4">
+              <img src="resources/images/Dataset5.png" border="1" alt="" id="image" class="col-sm-4">
+              <img src="resources/images/Dataset6.png" border="1" alt="" id="image" class="col-sm-4">
+          </div>
+          <div class="row">
+              <p class="col-sm-4">x: -188.0 y: 142.2256838905775</p>
+              <p class="col-sm-4">x: -64.0 y: 136.39607077059904</p>
+              <p class="col-sm-4">x: -34.0 y: 126.83974358974356</p>
+          </div>
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">DQN Demo</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<video width="320" height="240" controls>
+            <source src="resources/images/DQNDemo.mp4" type="video/mp4">
+            <source src="resources/images/DQNDemo.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">CNN model Demo</h2>
+
+    <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <video width="320" height="240" controls>
+            <source src="resources/images/CNNDemo.mp4" type="video/mp4">
+            <source src="resources/images/CNNDemo.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Original Model for DQN</h2>
+        <p>
+          Original model used was a FC network consisting of 1 input layer, 3 hidden layers and 1 output layer. Input layer has 11 neurons, 150 neurons in hidden layers and 3 neurons in output with softmax activation function.
+        </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/DQNOriginal.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Original Model for CNN model</h2>
+        <p>
+          Original model used was 2 convolution layers with filter size 3, then 1 max pooling layer with pooling size 2, then output was flattened and entered into a FC network with dense layers of 4096 neurons, 128 neurons and 2 neurons in output to represent the x and y coordinates.
+        </p>
+        
+
+    <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/CNNOriginal.png" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+
+		<h5 class="mt-5">DQN: Used 1 hidden layer only with 100 neurons</h5>
+		<p>
+			Cannon game can be beaten easily if the model focused only on the nearest target each time, so the input was x and y coordinates of the first target and the model did not need to be deep to avoi d overfitting so 1 hidden layer only was used with 100 neurons in it and changed the output layer dimensions to 2 to represent the x and y coordinates chosen by the model.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/DQNUpdate.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">CNN model: Used Resnet model</h5>
+		<p>
+			The original model tended to underfit the problem and did not yield good results, therefore we decided to go deeper and try out a deep model. 
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/CNNUpdate.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			Add your results here, add graphs and images to illustrate it.
+			Compare your results to the original model and state of the art
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+	 	<ul>
+		  <li>Training hardware: used colab to train the CNN model</li>
+		  <li>Training time: 30 minutes in DQN, 1 hour in CNN</li>
+		  <li>Number of epochs: 150 epochs were needed to reach a non losing state in DQN, 10 epochs in CNN model</li>
+		  <li>Time per epoch: random in DQN, 6 minutes in CNN model</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			In conclusion, DQN yielded much better results than the CNN model, DQN is more suitable when it comes to playing games. We are interested in the idea of using the same DQN model in different games and yielding good results in most of them, so we will consider doing that in the future. For CNN model in the future we will try out different models and do further hyper parameter tuning. Also we will use a much bigger dataset with a bigger distibution than the one used because the model tends to overfit on game states where the targets are still far, that is because these states form most of the dataset.   
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://github.com/maurock/snake-ga">Previous model in DQN</a></li>
+		  <li><a href="https://github.com/grantjenks/free-python-games">Cannon game in python</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

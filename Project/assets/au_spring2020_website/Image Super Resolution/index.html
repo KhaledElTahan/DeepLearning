@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Project Title Here</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Image Super Resolution</h1>
+        <ul class="list-unstyled">
+          <li>Sarah Ehab Wahdan (29)</li>
+          <li>Belal Adel El-Hadad (19)</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+            Super resolution is the process of upscaling and or improving the details within an image.
+            Often a low resolution image is taken as an input and the same image is upscaled to a higher resolution, which is the output.
+            The details in the high resolution output are filled in where the details are essentially unknown.
+
+            Super resolution is essentially what you see in films and series where someone zooms into an image
+            and it improves in quality and the details just appear.
+
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+            Div2k dataset: Common evaluation dataset for Super Resolution of images.
+            contains various images of buildings to animal faces.
+            The DIV2K dataset is divided into:
+            train data: starting from 800 high resolution images .
+            validation data: 100 high resolution images .
+        </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/DIV2K.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+<!--			Place few examples here to illustrate the dataset and your problem statement, add your model images below-->
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/examples_2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			State of the art models and their accuracies.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/state_of_the_art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+            The original model consists of three networks:</p><br>
+          <p>
+              1. Generator network: Generator upsamples low resolution(LR) images to super-resolution images (SR) ‘subpixel’ .</p><br>
+          <p>
+              2. Discriminator network: discriminator is used to distinguish the high resolution (HR) images from the generated super resolution (SR) images.</p><br>
+                <p>3. Perceptual network.
+
+        </p><br>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/generator.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/discriminator.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/perceptual.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+			Add all the model updates:
+		</p>
+
+		<h5 class="mt-5">Update #1:</h5>
+		<p>
+            We concluded that the error in the noise model maybe from the gradient problems so we add some skip connections in the generator from each layer to all after it.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/generator_1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2:</h5>
+		<p>
+            We added a concatenate layer before the last conv layer, it will join all generator blocks outputs in the generator network.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/generator_2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+
+          <h5 class="mt-5">Update #3:</h5>
+          <p>
+              We Changed the layers in generator block to conv, relu,conv.
+              And the discriminator block to be conv,batch norm ,relu  (7 blocks).
+
+          </p>
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/generator_3.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/discriminator_3.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+
+          <h5 class="mt-5">Update #4:</h5>
+          <p>
+              We Changed the generator block in generator network to :  conv, prelu , conv.
+          </p>
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/generator_4.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+<br>
+        <p>
+            <b>Default model results</b>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/default.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+      <br>
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <p>
+                  <b>Deblur model results</b>
+              </p>
+
+              <br/> <!-- Empty Line before the image -->
+              <div class="img-container" align="center"> <!-- Block parent element -->
+                  <img src="resources/images/deblur.png" class="img-fluid text-center">
+              </div>
+              <br/> <!-- Empty Line after the image -->
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <p>
+                  <b>Denoise model result</b>
+              </p>
+
+              <br/> <!-- Empty Line before the image -->
+              <div class="img-container" align="center"> <!-- Block parent element -->
+                  <img src="resources/images/denoise.png" class="img-fluid text-center">
+              </div>
+              <br/> <!-- Empty Line after the image -->
+          </div>
+      </div>
+<br>
+      <div class="row">
+          <div class="col-lg-12 text-left">
+              <p>
+                  <b> Repair model results</b>
+              </p>
+
+              <br/> <!-- Empty Line before the image -->
+              <div class="img-container" align="center"> <!-- Block parent element -->
+                  <img src="resources/images/repair.png" class="img-fluid text-center">
+              </div>
+              <br/> <!-- Empty Line after the image -->
+          </div>
+      </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			 Details related to training:
+		</p>
+
+	 	<ul>
+		  <li>Programming framework: Theano</li>
+		  <li>we used colab and azure to train our models</li>
+		  <li>The training took about 352 hours</li>
+		  <li>Number of epochs: 350 epoch</li>
+		  <li>Time per epoch: 65 minutes</li>
+		  <li>Difficulties: We couldn't make some updates as the required layers are not supported by Theano.</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+            The results of second and fourth models are promising after only 20 epochs as they got a higher accuracy among all other models.
+            So we decided to do more training on them, apply hyperparameter tuning and try different datasets .
+
+        </p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+<!--	    <p>-->
+<!--	    	List all references here, the following are only examples-->
+<!--	    </p>-->
+
+		<ol>
+		  <li><a href="https://github.com/alexjc/neural-enhance">Super Resolution</a></li>
+		  <li><a href="https://www.kaggle.com/joe1995/div2k-dataset">DIV2K Dataset</a></li>
+		  <li><a href="https://arxiv.org/pdf/1707.02921.pdf">Enhanced Deep Residual Networks for Single Image Super-Resolution</a></li>
+		  <li><a href="https://arxiv.org/pdf/1609.05158.pdf">Real-Time Single Image and Video Super-Resolution Using an Efficient
+              Sub-Pixel Convolutional Neural Network</a></li>
+		  <li><a href="https://arxiv.org/pdf/1802.08797.pdf">Residual Dense Network for Image Super-Resolution</a></li>
+		  <li><a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Tai_Image_Super-Resolution_via_CVPR_2017_paper.pdf">Image Super-Resolution via Deep Recursive Residual Network</a></li>
+		  <li><a href="https://arxiv.org/pdf/1903.09814.pdf">Feedback Network for Image Super-Resolution</a></li>
+		  <li><a href="https://arxiv.org/pdf/1809.00219.pdf"> Enhanced Super-Resolution
+              Generative Adversarial Networks</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

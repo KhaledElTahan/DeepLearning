@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Project Title Here</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">DeepFake Detection</h1>
+        <ul class="list-unstyled">
+          <li>Mohamed Abdo Habila 58</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Deep learning has been successfully applied to solve various complex problems ranging from big data analytics to computer vision and human-level control. Deep learning advances however have also been employed to create software that can cause threats to privacy, democracy and national security. One of those deep learning-powered applications recently emerged is "deepfake". Deepfake algorithms can create fake images and videos that humans cannot distinguish from authentic ones.
+
+		</p>
+		<p>
+		DeepFake techniques can produce realistic AI-generated videos of people doing and saying fictional things, thus they have the potential to have a significant impact on how people determine the legitimacy of information presented online. given that deepfakes may be used maliciously as a source of misinformation, manipulation, harassment, and persuasion. So identifying manipulated media is a technically demanding and rapidly evolving challenge.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			i worked with a subset of Facebook's dataset (400 videos) as a validation set, and trained the model with faceforensics++ dataset that has 1000 deepfake videos and 1000 original videos.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+		<p>Real</p>
+      		<img src="resources/images/Real.gif" class="img-fluid text-center">
+    	</div>
+	<br/>
+	<div class="img-container" align="center"> <!-- Block parent element -->
+		<p>Fake</p>
+      		<img src="resources/images/fake.gif" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="left"> <!-- Block parent element -->
+		<p>Fake</p>
+      		<img src="resources/images/fake1.jpg" class="img-fluid text-left">
+    	</div>
+	    <div class="img-container" align="right"> <!-- Block parent element -->
+		<p>Real</p>
+      		<img src="resources/images/real2.jpg" class="img-fluid text-center">
+    	</div>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="left"> <!-- Block parent element -->
+		<p>Fake</p>
+      		<img src="resources/images/fake2.jpg" class="img-fluid text-right">
+    	</div>
+	    <div class="img-container" align="right"> <!-- Block parent element -->
+		<p>Real</p>
+      		<img src="resources/images/real1.jpg" class="img-fluid text-right">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/state-of-the-art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			The proposal of technologies that can automatically detect and assess the integrity of digital visual media is indispensable. So there are many proposed methods to detect deepfakes in the literature to date. Here we mention the selected solution. Mesonet[1] model is a compact facial video forgery detection network. This paper follows a deep learning approach and presents two networks (Meso4, MesoInception4), both with a low number of layers to focus on the mesoscopic properties of images.
+
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/mesonet-model.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+			MesoNet model was adopted to build the model on. The key difference is the method selected to extract and align faces, the authors’ implementation uses face_recognition module to detect face box and landmarks which we found very slow and restricted the model to work on just 3 to 5 frames and it dramatically slows the preprocessing. So we searched for different algorithms to do this task, we tried frozen_inference_graph_face model from mobilenet_ssd, that enabled us to use 20 frames and significantly reduced processing time from about 2 hours to just 30 minutes.
+</P><p>
+Augmentations:
+Extensive augmentations significantly improved the model accuracy,  using more frames didn’t help at all as all frames are strongly correlated. I was only using horizontal flip since I thought augmentation will distort features that were produced by manipulation, but I was wrong. Now I’m using some basic augmentation such as shift, scale, rotate, brightness and gaussian noise. 
+</p><p>Face margin:
+When I generated crops for training I added 30% of face crop size from each side, this worked better than 0. I guess model learns to detect some inconsistency between manipulated region and surrounding region.
+
+
+
+		</p>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			I couldn't achieve the state-of-the-art accuracy due to the limited resources I had (CPU power and time), which was limiting me from using a larger dataset, a larger model or applying more computations on images.
+		</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+	 	<ul>
+		  <li>Programming framework: Keras on TensorFlow 2.2</li>
+		  <li>Training hardware: I tried to train the model on kaggle platform but failed due to 9 hour excution limit, so i finally trained the model on my machine</li>
+		  <li>Training time: about 90 hours</li>
+		  <li>Number of epochs: 5</li>
+		  <li>Time per epoch: 18 hours</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			I couldn’t train a larger model or apply extensive calculations on the images with my current resources but doing the following may improve the performance:
+<ul>
+<li>Trainig on a larger dataset: I trained the model with 2000 videos each has 600 frames which is a low number compared to the complete dataset that has more than 10000 fake videos.</li>
+<li>Trying larger model (efficientnet model): Training this simple model took much time ,this makes training larger models impossible on my machine so I’ll try using azure to compare the performance of efficientnet model and the current model.</li>
+<li>Calculating pixel-wise differences between fake and corresponding original video: producing a mask with pixels that have outstanding differences can enable the model to know which part of the image is modified and I guess may increase the model’s accuracy.</li>
+<ul>
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+
+		<ol>
+		  <li>MesoNet: a Compact Facial Video Forgery Detection Network: <a href="ttps://arxiv.org/pdf/1809.00888.pdf">ttps://arxiv.org/pdf/1809.00888.pdf</a></li>
+		  <li>Temporal convolution to detect Audio Deepfakes: <a href="https://github.com/dessa-oss/fake-voice-detection">https://github.com/dessa-oss/fake-voice-detection</a></li>
+		  <li>FaceForensics++ dataset: <a href="https://www.kaggle.com/sorokin/faceforensics">https://www.kaggle.com/sorokin/faceforensics</a></li>
+		  <li>DeepFake Detection challenge website:<a href="https://deepfakedetectionchallenge.ai/">https://deepfakedetectionchallenge.ai/</a></li>
+                  <li>Deepfake Video Detection through Optical Flow based CNN: <a href="http://openaccess.thecvf.com/content_ICCVW_2019/papers/HBU/Amerini_Deepfake_Video_Detection_through_Optical_Flow_Based_CNN_ICCVW_2019_paper.pdf">http://openaccess.thecvf.com/content_ICCVW_2019/papers/HBU/Amerini_Deepfake_Video_Detection_through_Optical_Flow_Based_CNN_ICCVW_2019_paper.pdf</a>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

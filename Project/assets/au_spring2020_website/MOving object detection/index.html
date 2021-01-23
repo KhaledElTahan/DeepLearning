@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Moving Object detection</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">MOving object detection</h1>
+        <ul class="list-unstyled">
+          <li>Mohamed Kamal: muhammedkamal98@gmail.com</li>
+          <li>Moahamed Elmaghraby: mmaghraby134@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+        <p>
+          Our project focuses on moving object detection which deals with identifying and locating objects of certain classes in a stream of videos.
+          The best accuracy achieved so far is on coco dataset which is 37.4 by CenterNet on 52 fps.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+        <p>
+          We would use MOT video of labeled bounding boxes as a data sets and IOU and precession accuracy
+        </p>
+        <p>
+          it is a CSV text-file containing one object instance per line. Each line must contain 7 values:
+          <code> frame, id, bb_left, bb_top, bb_width, bb_height, conf</code>
+          <br>The conf value contains the detection confidence in the det.txt files.
+          For the ground truth, it acts as a flag whether the entry is to be considered.
+          A value of 0 means that this particular instance is ignored in the evaluation,
+          while any other value can be used to mark it as active. For submitted results, all lines in the .txt file are considered.
+        </p>
+        Example
+        <pre style="display: block;padding: 9.5px;width:500px;margin: 0 0 10px;font-size: 13px;line-height: 1.42857143;color: #333;word-break: break-all;word-wrap: break-word;background-color: #f5f5f5;border: 1px solid #ccc;border-radius: 4px;">
+          1, -1, 794.27, 247.59, 71.245, 174.88, 4.56
+          1, -1, 1648.1, 119.61, 66.504, 163.24, 0.32
+          1, -1, 875.49, 399.98, 95.303, 233.93, -1.34
+          ...
+        </pre>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+        <br/> <!-- Empty Line before the image -->
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>input Example</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/inputExample.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>output Example</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/outputExample.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+        </div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+        <h5>Related work</h5>
+        <ul>
+          <li>CenterNet where the network uses Hourglass blocks and detects the center point of the object. 37.4% mAP</li>
+          <li>CornerNet with its variation (original, squeeze) 36.5% mAP</li>
+          <li>SSD detectors 26.8% mAP</li>
+          <li>Yolo V2 28% mAP</li>
+          <li>RetinaNet 31% mAP</li>
+        </ul>
+        <br/> <!-- Empty Line before the image -->
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>Yolo Result</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/yolo_result.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>Yolo-tiny Result</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/yolo_tiny_result.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>ssd_mobile Result</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/ssd_mobile_result.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>fast_rnn_resnet Result</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/fast_rnn_result.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+        </div>
+        <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+        <p>We selected to use Tiny Yolo as</p>
+        <ul>
+          <li>Yolo considered the first model to achieve good performance near real-time.</li>
+          <li>Use the tiny version for speed of training and inference.</li>
+          <li>And has a simple architecture </li>
+        </ul>
+		    <br/> <!-- Empty Line before the image -->
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>Yolo-tiny VS Yolo</h5>
+            <ul>
+              <li>Number of conv layers in yolo is more than it in yolo-tiny.</li>
+              <li>There is  a variety in filter dimensions in yolo while in yolo-tiny they use only 3*3 filters.</li>
+              <li>Each block in yolo consist of many conv layers and one max pooling while in yolo-tiny each block consist of one con layer and one block.</li>
+              <li>Original model of both yolo and tiny yolo has skip connections while ours doesn’t.</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/yolo.jpg" style="width: 400px; height: 300px;" class="img-fluid">
+          </div>
+        </div>
+        <br/> <!-- Empty Line after the image -->
+    	  <br/> <!-- Empty Line after the image -->
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>Loss Function</h5>
+            <ul>
+              <li>first term: top left point x and y loss</li>
+              <li>second term: width and height loss</li>
+              <li>third/forth term: output class type loss</li>
+              <li>fifth term: output confidence loss</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/loss_func_2.jpg" style="width: 400px; height: 300px;" class="img-fluid">
+          </div>
+        </div>
+    	  <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+        <ul class="faq-list">
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a data-toggle="collapse" class="" href="#faq1">What is Feature fusion?</a>
+            <div id="faq1" class="collapse show" style="padding-top: 10px;" data-parent=".faq-list">
+              <p>
+                Combining two or more different feature representation for the data two come up with 
+                combined feature that more representative than both of original features.
+              </p>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="resources/images/feature_fusion_example.jpg" class="img-fluid">
+              </div>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a data-toggle="collapse" href="#faq2" class="collapsed">Is that enough?</a>
+            <div id="faq2" class="collapse about" style="padding-top: 10px;" data-parent=".faq-list">
+              <p> No, because the foreground mask is not always that accurate due to: </p>
+              <ul>
+                <li>Possibilities of noise.</li>
+                <li>It is hard to accurately compute it in dynamic background.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <a data-toggle="collapse" href="#faq3" class="collapsed">Our Proposed Solution</a>
+            <div id="faq3" class="collapse about" style="padding-top: 10px;" data-parent=".faq-list">
+              <p> Current models achieved respectable accuracy but face the real time constraint on this problem so we proposed: </p>
+              <ul>
+                <li>since we are working on a stream of videos we use a background subtraction technique to use a foreground mask and integrated it as another channel to the image input.</li>
+                <li>The main goal is to increase the accuracy without increasing the inference time of the model.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <a data-toggle="collapse" href="#faq4" class="collapsed">Model we selected to use</a>
+            <div id="faq4" class="collapse about" style="padding-top: 10px;" data-parent=".faq-list">
+              <p> we selected to use yolo-tiny model: </p>
+              <ul>
+                <li>Yolo considered the first model to achieve good.</li>
+                <li>Use the tiny version for speed of training and inference.</li>
+                <li> has a simple architecture.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <a data-toggle="collapse" href="#faq5" class="collapsed">Differece between our model and originl one</a>
+            <div id="faq5" class="collapse about" style="padding-top: 10px;" data-parent=".faq-list">
+              <p> Input Format: </p>
+              <ul>
+                <li>In original model the input images are 3 channels (RGB).</li>
+                <li> While in our model the input images are 4 channels, the extra one is a mask for foreground to have the input image as foreground only.</li>
+                <li>The foreground is computed by background subtraction using mixture of gaussian.</li>
+              </ul>
+              <p> Loss Function: </p>
+              <ul>
+                <li>The original model works with many object types (person, dog,...).</li>
+                <li>In our model we only focus on persons to simplify our training process.</li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+        <p>
+          Add your results here, add graphs and images to illustrate it.
+          Compare your results to the original model and state of the art
+        </p>
+        <br/> <!-- Empty Line before the image -->
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>original model</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/yolo_tiny_result.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+            <h5>our model</h5>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="resources/images/our_model.jpg" style="height: 361px;" class="img-fluid">
+          </div>
+        </div>
+        <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+        <ul>
+          <li>Programming framework: python, tesnorflow, keras</li>
+          <li>Training hardware: colab</li>
+          <li>Training time: 10 minutes</li>
+          <li>Number of epochs: used maximun 100 but it converages in 40s</li>
+          <li>Time per epoch: 25 seconds</li>
+          <li>5 anchor boxes: '1.08,1.19, 0.44,1.31, 0.49,1.51, 0.59,1.85, 0.82,2.51'</li>
+          <li>IOU threshold: 0.5</li>
+          <li>Non-max suppression: 0.2</li>
+        </ul> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Conclusion</h2>
+        <ul>
+          <li>Works well on stationary camera.</li>
+          <li>Get improved accuracy than original model.</li>
+          <li>Need more investigation to the technique as it is new to solve this problem.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">References</h2>
+
+      <ol>
+        <li><a href="https://github.com/tensorflow/models/tree/master/research/object_detection">Tensorflow object detection API</a></li>
+        <li><a href="https://github.com/rafaelpadilla/Object-Detection-Metrics?fbclid=IwAR1e4gtGAPS4hD6jYZdXSkojb4HYPlzZxEfH2j6fadJfyoOKPnHiDLNGI0Q">Object-Detection-Metrics</a></li>
+        <li><a href="https://github.com/madhawav/YOLO3-4-Py?fbclid=IwAR1Rxg4-97b7qE2dCo54R-V0Q9utiZ9glHO5Zl-Rcjp96Lzn3A8OeXWBWNo">Yolo implementaion</a></li>
+        <li><a href="https://motchallenge.net/data/MOT17/">Dataset URL</a></li>
+        <li><a href="https://github.com/joycex99/tiny-yolo-keras">Tiny-yolo implementation on keras</a></li>
+        <li><a href="http://personal.ee.surrey.ac.uk/Personal/R.Bowden/publications/avbs01/avbs01.pdf?fbclid=IwAR16MN5XNL06NhNmukykGhMKA3TX1IIcT6xpxf4ew3fsf3FX77oCEe_JjVE">An Improved Adaptive Background Mixture Model for Realtime Tracking with Shadow Detection</a></li>
+        <li><a href="https://medium.com/@jonathan_hui/map-mean-average-precision-for-object-detection-45c121a31173">mAP (mean Average Precision) for Object Detection</a></li>
+      </ol> 
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

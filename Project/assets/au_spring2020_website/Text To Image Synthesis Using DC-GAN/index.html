@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Text-to-Image Generation</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Text To Image Synthesis Using DC-GAN</h1>
+        <ul class="list-unstyled">
+          <li>Muhammad Sharafeldeen</li>
+          <li>Mahmoud Tarek Samir</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+        <p>“A picture is worth a thousand words!”. What if we can generate a realistic image from its description? In recent years, a lot of research and interest focused on text-to-image generation. In this work, we illustrate the problem and the data we used, build on a work from literature, then state the conclusions and possible future works.</p>
+		<p>
+			Text-to-image generation is to translate text in the form of human-written description into image that is indistinguishable from realistic one.
+		</p>
+      </div>
+    </div>
+
+        <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Examples of Input/Output</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/intro.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+        <h5>Oxford-102</h5>
+        <a href="https://www.robots.ox.ac.uk/~vgg/data/flowers/102/">https://www.robots.ox.ac.uk/~vgg/data/flowers/102/</a>
+        <p>
+          It contains 102 categories of flowers with 40-258 images each (with total 8,189 images)  along with their text descriptions.
+    </p>
+    
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dataset.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			Comparison​ between the models in literature and the state-of-the-art one is shown in the following table. (dash indicates that data not found)
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/state-of-the-art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    	<p>
+    		It is obvious that <strong>DM-GAN</strong>​ is the state-of-the-art model, followed by Obj-GAN.
+    	</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			<Strong>DC-GAN</Strong>. We choose it as it’s architecture is not complex taking into consideration the lack of hardware resources and training time. It uses a deep convolutional generative adversarial network (DC-GAN) conditioned on text features encoded by a hybrid character-level convolutional recurrent neural network.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dc-gan.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+		<h5 class="mt-5">Update #1: ​Progressive Augmentation.</h5>
+		<p>
+			Solving the problem of GAN instability where the discriminator learning is faster than the generator. The key idea is  making harder the learning task of the discriminator by augmenting progressively its input space with an arbitrary random bit sequence, thus enabling continuous learning of the generator. It is a data augmentation technique but instead of directly modifying the data samples, it rather appends them structurally.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/pa.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+    	<p>The problem we found that we need to modify the input layer of the discriminator network. Unfortunately, Tensorflow (the framework we uses for the implementation of the DC-GAN) uses a static graph and so it makes it very hard to modify the system during runtime. We could use Pytorch instead as it uses a dynamic graph but we have no sufficient background given the time constraints of the project.</p>
+
+		<h5 class="mt-5">Update #2: Hyper-parameter tuning.</h5>
+		<p>
+			Tune DC-GAN hyper-parameters​ trying to increase its performance. We tried to making some experiments with different hyper-parameters (e.g. learning rate, batch size, epochs number, ...). The problem is that we trained the model only on a subset of the dataset due to the long training time.
+		</p>
+
+		<h5 class="mt-5">Update #3: 2-in-one Image.</h5>
+		<p>
+			DC-GAN produces images that contain only one object. We ​explored the capability of generating 2 specific objects in one image (containing birds and flowers).​ We filtered the COCO dataset to get images with flowers and birds in the same text description but we found that images that contain birds are 3362 images and no images contains flowers with the detailed captions we need.
+		</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/examples.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    	<p>
+			To evaluate the final model, we used Human-Inception score. A set of images is generated using both models, then some of our colleagues are asked to rate each image.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/evaluation.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+
+	 	<ul>
+	 	  <li>Training is done over Oxford-102 flowers dataset</li>
+		  <li>Tensorflow framework is used</li>
+		  <li>The model was trained for 200 epochs on a GPU of Google Colab. This took roughly 2 days.</li>
+		  <li>The images generated are 64 x 64 in dimension.</li>
+		  <li>Sentence embedding is generated through skip-thoughts vectors for all the captions</li>
+		  <li>While processing the batches before training, the images are flipped horizontally with a probability of 0.5.</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			We found the following is worth to be mentioned
+		</p>
+
+		<ul>
+	 	  <li>Overall, it is obvious that the author’s model is better. This can be due to the learning with manifold interpolation he used (GAN-INT).</li>
+		  <li>Sent2Vec encoder highly affects the training phase.</li>
+		  <li>The model takes too much time to be trained so it is very hard to make the appropriate hyperparameter tuning and even more harder to change in model architecture.</li>
+		</ul> 
+
+		 <p>
+			There is still alot to be acheived, we decided to left the following for future work
+		</p>
+
+		<ul>
+	 	  <li>Using pyTorch instead of Tensorflow[5] to implement progressive augmentation.</li>
+		  <li>More better hyperparameters tuning.</li>
+		  <li>Training over CUB-200 birds dataset.</li>
+		  <li>Trying different text encoder.</li>
+		</ul> 
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+		<ol>
+		  <li>Reed, S., Akata, Z., Yan, X., Logeswaran, L., Schiele, B., and Lee, H. (2016b). Generative adversarial text to image synthesis. Proceedings of the International Conference on Machine Learning (ICML). Available: <a href="https://arxiv.org/pdf/1605.05396.pdf">https://arxiv.org/pdf/1605.05396.pdf</a></li>
+		  <li>Zhang, Dan & Khoreva, Anna. (2019). PA-GAN: Improving GAN Training by Progressive Augmentation. Available: <a href="https://arxiv.org/pdf/1901.10422.pdf">https://arxiv.org/pdf/1901.10422.pdf</a></li>
+		  <li><a href="https://github.com/paarthneekhara/text-to-image">text-to-image implementation in Tensorflow by Paarth Neekhara.</a></li>
+		  <li><a href="https://www.robots.ox.ac.uk/~vgg/data/flowers/102/">Oxford 102-flowers dataset.</a></li>
+		  <li><a href="https://github.com/ryankiros/skip-thoughts">Sent2Vec encoder implementation “Skip-Thought Vectors”.</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

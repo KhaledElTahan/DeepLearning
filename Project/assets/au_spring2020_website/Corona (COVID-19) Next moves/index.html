@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Corona next-moves</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Corona (COVID-19) Next moves</h1>
+        <ul class="list-unstyled">
+          <li>Ziyad Elbanna -26</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+      Since the December 2019 outbreak of the #coronavirus (COVD-19) in China, we all
+have been closely watching the news and listening to speeches about the deadly
+virus. There is panic everywhere with people wearing masks and others locked in
+their houses all day to avoid contracting the virus. The disease has
+<li>  Killed more than 2,800 people </li>
+<li>  Infected more than 84,000 (2nd March, 2020 statistics) </li>
+
+In this proposed project we are using Machine learning & Deep learning to
+indicate the next moves of the COVID-19 that it will take for the next months, may
+be years, and how the trends of this virus will affect the world’s population and
+economy.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+          <h5> Content </h5>
+    2019 Novel Coronavirus (2019-nCoV) is a virus (more specifically, a coronavirus) identified as the cause of an outbreak of respiratory illness first detected in Wuhan, China. Early on, many of the patients in the outbreak in Wuhan, China reportedly had some link to a large seafood and animal market, suggesting animal-to-person spread. However, a growing number of patients reportedly have not had exposure to animal markets, indicating person-to-person spread is occurring. At this time, it’s unclear how easily or sustainably this virus is spreading between people - CDC
+
+    This dataset has daily level information on the number of affected cases, deaths and recovery from 2019 novel coronavirus. Please note that this is a time series data and so the number of cases on any given day is the cumulative number.
+
+    The data is available from 22 Jan, 2020.
+
+  <h5> Column Description </h5>
+    Main file in this dataset is covid_19_data.csv and the detailed descriptions are below.
+
+    covid_19_data.csv
+
+    Sno - Serial number
+    ObservationDate - Date of the observation in MM/DD/YYYY
+    Province/State - Province or state of the observation (Could be empty when missing)
+    Country/Region - Country of observation
+    Last Update - Time in UTC at which the row is updated for the given province or country. (Not standardised and so please clean before using it)
+    Confirmed - Cumulative number of confirmed cases till that date
+    Deaths - Cumulative number of of deaths till that date
+    Recovered - Cumulative number of recovered cases till that date
+    2019_ncov_data.csv
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/imagenet.jpeg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			My project inputs were the outputs of previous levels each time (cases), to predict the new cases.
+      And the model was divided to Decoder, and encoder:
+      <h5> Decoder </h5>
+      y(t) = LSTM(s(t-1), y(t-1)); where s is the hidden state of the LSTM(h and c)
+      y(0) = LSTM(s0, C); C is the context vector from the encoder.
+      <h5> Encoder </h5>
+      X = Input sequence
+      C = LSTM(X); The context vector
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/examples.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+          In our project we are trying to predict the number of cases of corona virus as time
+          passes, we will do this by the use of deep learning (ofcourse) ,and specifically by
+          the help of Recurrent Neural Networks and Long short term memory as they
+          perform well in the forecasting activity.
+          This approach is expected to do very well but will also contain some errors like:
+          <li> Forecast errors </li>
+          A forecast “error” is the difference between an observed value and its forecast.
+          Here “error” does not mean a mistake, it means the unpredictable part of an
+          observation
+          <li> Scale-dependent errors </li>
+          The two most commonly used scale-dependent measures are based on the
+          absolute errors or squared errors
+          <li> Percentage errors </li>
+          Percentage errors have the advantage of being unit-free, and so are
+          frequently used to compare forecast performances between data sets
+          <li> Scaled errors </li>
+          And ofcourse we will use the methods described below to have more accurate
+          results		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/state-of-the-art-results.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+        <h5>  Description </h5>
+          We used RNN models with LSTM or GRU cells for better
+          performance, preferably with encoders and decoders. We will agree on the
+          design of the LSTM (encoders and decoders) when we have more
+          information about it, but initially:
+          <li> Encoder: LSTM (input) </li>
+        <li>  Decoder: LSTM (input state -1) </li>
+        <h5>  Reason we selected this </h5>
+          In general RNNs work well with prediction problems as it keeps the history
+          into account to be able to forecast the upcoming event or pattern.		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/model.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+			Add all the model updates you made here, need as many images as you wish
+		</p>
+
+		<h5 class="mt-5">Update #1: Used Repeat vectors</h5>
+		<p>
+		 In our project, the RepeatVector layer repeats the incoming inputs a specific number of time. The shape of the input in the project example was ( 32 , ).
+     But the output shape of the RepeatVector was ( 3 , 32 ), since the inputs were repeated 3 time
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/vTYa5.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Used time distributed layer</h5>
+		<p>
+      This wrapper allows to apply a layer to every temporal slice of an input. The input should be at least 3D, and the dimension of index one will be considered to be the temporal dimension.
+
+TimeDistributed layer applies a specific layer such as Dense to every sample it receives as an input. Suppose the input size is ( 13 , 10 , 6 ). Now, I need to apply a Dense layer to every slice of shape ( 10 , 6 ). Then I would wrap the Dense layer in a TimeDistributed layer.
+
+model.add( TimeDistributed( Dense( 12 , input_shape=( 10 , 6 ) )) )
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			Results that I got was for the training set and validation set
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+        <h5> Training dataset </h5>
+      		<img src="resources/images/results-1.png" class="img-fluid text-center">
+          <h5> Validation dataset </h5>
+          <img src="resources/images/results-2.png" class="img-fluid text-center">
+
+
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <h5>Programming framework</h5>
+      I used python notebook for visualisation, and data processing:
+      The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.
+      Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning
+
+		  <h5>Training time</h5>
+      Train Score: 0.00828682 MSE (0.09103195 RMSE ) , 87.50000000  ACC
+      Validation Score: 0.01224902 MSE (0.11067527 RMSE ) , 37.50000000  ACC
+
+		  <h5>Number of epochs</h5>
+      Number of epochs I used was 50
+		  <h5>Time per epoch</h5>
+      4ms per step of epoch
+		</ul>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			I learnt alot frfom this project. Especially, dealing with LSTM and time-distributed dense layers, and the future work will be to
+      follow the coronavirus cases every day  , to see the new accuracy and plot the graphs
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    <li> Kaggle framework </li>
+      <li> Github </li>
+      <li> Stackoverflow </li>
+	    </p>
+
+		<ol>
+		  <li><a href="https://www.apc.org/en/news/may-first-movement-technology-statement-coronavirus-situation">Problem statement url</a></li>
+		  <li><a href="https://www.kaggle.com/sudalairajkumar/novel-corona-virus-2019-dataset">Dataset URL</a></li>
+		  <li><a href="https://en.wikipedia.org/wiki/Long_short-term_memory">Model Reference URL</a></li>
+		</ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

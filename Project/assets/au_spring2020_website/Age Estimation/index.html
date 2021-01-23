@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Age Estimation</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Age Estimation</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Hesham #10</li>
+          <li>Ahmed Khaled Abdel Sayed #4</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+      Age recognition is the estimation of people’s age based on biometric features, more specifically their facial features from their images. Information about people’s age can be used for different purposes such as targeting, advertising, audience analytics and many more. For example, with automatic age estimation, users can easily manipulate and deliver their content to the right age group at the right time.
+
+
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			There are multiple dataset for the age estimation problem. The most used datasets are:
+		</p>
+    <ul>
+        <li>CACD</li>
+        <li>MORTH-2</li>
+        <li>AFAD</li>
+        <li>UTKFace</li>
+    </ul>
+    <p>
+      In this Project, the main foucs was on the CACD (Cross-Age Celebrity Dataset) which contains more than 160,000 images of 2,000 celebrities with age ranging from 16 to 62. To the best of our knowledge, it is by far the largest publicly available cross-age face dataset.</b>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/example.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			Our System is Simple. The input is an image of a person's face. And the output is his estimated age.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/ex1.png" class="img-fluid text-center">
+          <br/>
+          <img src="resources/images/ex2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			In the past few years, multiple researches were made to discuss this problem and build models for it. some of the models <area
+       coords="" href="#" alt="">
+		</p>
+    <ul>
+      <li>RNDF</li>
+      <li>CORAL</li>
+      <li>CMAAE-OR</li>
+    </ul>
+    <p>the results of those models are shown below</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+        <figure>
+          	<img src="resources/images/sota.png" class="img-fluid text-center">
+          <figcaption><b>NOTE: </b>the results in the table above are the <b>Mean Absolute Error (MAE)</b></figcaption>
+        </figure>
+
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      <p>From the table above we can see that the CORAL model provides state of the art results for most of the datasets. For CACD, the RNDF model provided better results. So we decided to work on the performance of the CORAL model on this dataset (CACD) and try to learn from the structure of the RNDF model to improve the CORAL to pass the state of the art result for CACD </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			The Original model we used and studied was CORAL and RNDF models
+		</p>
+    <h4>CORAL Model</h4>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/model.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+
+		<h5 class="mt-5">Update #1: imply coral model on face Features not the whole face at once  
+</h5>
+		<p>
+			Use the same neural network on all features to decrease 
+      Number of parameter
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update1.jpeg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: same as update 1  </h5>
+		<p>
+      but	Use a simultaneous neural network on each feature
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update2.png" class="img-fluid text-center">
+    	</div>
+      <br/> <!-- Empty Line after the image -->
+      
+      <h5 class="mt-5">Update #3: same as update 1 & 2   </h5>
+		<p>
+      but	Use a 3 networks 
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update3.png" class="img-fluid text-center">
+    	</div>
+    	<br/>   
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+          Evaluation metric is mean absolute error <br>
+          This evaluation is after 190 epochs on 40000 image
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+      
+
+	 	<ul>
+		  <li>Programming framework : pytorch  </li> 
+		  <li>Training hardware : colab </li>
+		  <li>Training time : 14 hours</li>
+		  <li>Number of epochs : 200 </li>
+		  <li>Time per epoch 4 minutes </li>
+      <li>Number of training set images : 40000 image </li>
+      <li>Number of test set images : 7000 image </li>
+		</ul>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+        <li> Second model is the best of the three</li>
+      <li> The combining of RNDF & CORAL  didn’t gave a good result </li>
+    <li> We can reach more accurate model by more tuning</li>
+        
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	List all references here, the following are only examples
+	    </p>
+
+		<ol>
+		  <li><a href="https://paperswithcode.com/task/age-estimation">Problem statement url</a></li>
+		  <li><a href="https://bcsiriuschen.github.io/CARC/">Dataset URL</a></li>
+		  <li><a href="https://github.com/Raschka-research-group/coral-cnn"> coral Model Reference URL</a></li>
+		</ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

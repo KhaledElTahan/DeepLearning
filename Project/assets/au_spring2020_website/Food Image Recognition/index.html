@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Food Image Recognition</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Food Image Recognition</h1>
+        <ul class="list-unstyled">
+          <li>Hanan Elkhateeb</li>
+          <li>Youmna Dwidar</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Our main problem here is automatic food recognition. Food is an important part of our everyday life. It got into digital life by the richness of  photography in social media and dedicated photo sharing sites. This implies that automatic recognition of Food would not only help users effortlessly organize their extensive photo collections but would also help online photo repositories make their content more accessible. Additionally, food journal apps are now used to help patients estimate and track their daily caloric intake to modify their food habits and maintain a healthy diet. However, Current food journaling applications such as MyFitnessPal App require users to enter their meal information manually. Some people found that to be time consuming. 
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			The dataset used is FoodX-251. consists of miscellaneous food items from various cuisines and the images are downloaded using Web search engine.
+<br/>
+
+it consists of 251 categories of food and 158,846 images.
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/foodx251.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+		<p>Input</p>
+		<br/>
+      		<img src="resources/images/ex1.png" class="img-fluid text-center">
+		<br/>
+		<p>Output: Applesauce Cake </p>
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div class="img-container" align="center">
+		<p>Input</p>
+		<br/>
+      		<img src="resources/images/ex2.png" class="img-fluid text-center">
+		<br/>
+		<p>Output: Fried Calamari </p>
+    	</div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+	For the Food-101 dataset: the state-of-the-art model for this dataset used the following:
+ </p>
+<ul>
+		  <li>Assembling techniques into ResNet-50.</li>
+		  <li>They applied network tweaks such as ResNet-D, SK, Anti-alias, DropBlock, andBigLittleNet to ResNet. In more detail, ResNet-D and SK apply to all blocks in all stages. 
+</li>
+		  <li>Downsampling with anti-aliasing only applies to the downsampling block from Stage 2 to Stage 4. Drop-Block only applies to all blocks in Stage 3 and Stage 4. Little-Branchfrom BigLittleNet uses one residual block with smaller width.
+</li>
+		</ul> 
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/101art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+<p>
+	For the FoodX-251 dataset: the state-of-the-art model for this dataset is:
+ </p>
+<ul>
+		  <li>It was the paper of release for the dataset.</li>
+		  <li>They just used the ResNet-101 Architecture. 
+</li>
+		  <li>The baseline results using state-of-the-art ResNet-101 classifier shows 17% top-3 error rate.
+</li>
+		</ul> 
+<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/251art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+			For the used dataset Food-251:
+<br>
+The dataset was newly released so there weren't any proposed models on it except the one on the original paper. They used one of the most famous network architectures for image recognition to be their baseline. The model was using ResNet-101 architecture.
+		</p>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <h5 class="mt-5">
+			First proposed model is using DenseNet instead of ResNet-101:
+		</h5>
+<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dense.png" class="img-fluid text-center">
+    	</div>
+<ul>
+		  <li>The computational cost to train their dataset by DenseNet-121 was a little higher than ResNet-50</li>
+		  <li>Tbut was nearly half the computational cost for training by ResNet-101.
+</li>
+		</ul> 
+<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dr.png" class="img-fluid text-center">
+    	</div>
+		<h5 class="mt-5">Second proposed model is using AutoEncoder to create a Food Embedding.</h5>
+		<p>
+			An embedding is a relatively low-dimensional space into which we can translate high-dimensional vectors. Embeddings make it easier to do machine learning on large inputs like sparse vectors representing images. Ideally, an embedding captures some of the semantics of the input by placing semantically similar inputs close together in the embedding space. An embedding can be learned and reused across models.
+
+Image Embedding is very important for images’ classification because these correspond to a huge dimension data (e.g. a 20 megapixel camera picture with 3 RGB layers means 60 millions of integers as the total info stored in the image), So we can use the Embedding as input of the model, containing a reduced dimensionality but with much semantic information.
+
+we will use a AutoEncoder (AE) to create a Food Embedding. This information can be used in ML algorithms with higher semantic quality and similarity between Foods.
+
+		</p>
+<ul>
+		  <li>for the encoder is a combination of 2D convolution layers and 2D maxpooling layers:</li>
+		</ul> 
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+<ul>
+		  <li>For the decoder is a combination of 2D convolution layers and 2D upsampling layers:</li>
+		</ul> 
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			For the AutoEncoder Model:
+From comparing the results between using the full dataset and only a sample of 6000, we can see that the validation loss is less. Maybe this will indicate a better generalization. This is predicted as the dataset is a lot more than 6000. The real performance of the embeddings can only be seen and compared in real applications or used in different ML problems that we can measure accuracy and other metrics. We can for example, use it in clustering the same food categories or recognition of the food category based on its similarities between each other.
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+<p>Full DataSet</p>
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/full.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+<p>Sample of 6000</p>
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/6000.png" class="img-fluid text-center">
+    	</div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+	 	<ul>
+		  <li>Programming framework : jupyter notebook</li>
+		  <li>Training hardware i.e. colab or azure or anything else  : Azure and colab, both were used.</li>
+		  <li>Training time : The last run for the autoencoder was 13 hours for 30 epochs.
+For the ResNet architecture: 25 hours 
+<br>
+For the DenseNet architecture : 17 hours</li>
+		  <li>Number of epochs : for the DenseNet and ResNet we used 50 epochs.
+<br>
+For the autoEncoder : we run for 30 epochs </li>
+		  <li>Time per epoch :  For the ResNet : 30 mins per epoch on azure
+<br>
+DenseNet : 20 mins per epoch
+<br>
+AutoEncoder : 25 mins per epoch</li>
+		  <li>Any other important detail or difficulties : Training time was enormous and very limited resources. Also, we wrote multiple codes to read the data and train the resNet or the DenseNet and non of them was successful in producing any results  </li>
+		</ul> 
+      </div>
+    </div>
+
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			Conclusion:
+The dataset has lots of images and classes. It can be discovered in many ways. We tried to use it at first to solve the problem of food recognition, but we didn’t manage to get any helpful results. On the other hand, this made us see another perspective that we can use the data for another purpose. At last, we managed to see that even with no computational power, we can produce new ideas to get use of different datasets. 
+Future work :
+Variational AutoEncoder can be used and see if it can achieve better performance than AutoEncoder.Those embeddings can be used in different ML algorithms with higher semantic quality and similarity between Food categories.
+Finally, deep learning is a powerful tool, you can get use of it in discovering new data and information that you can learn from a single dataset. Training may need computational power but getting a creative ideas to get use of datasets doesn’t.
+ 
+
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href=https://github.com/karansikka1/iFood_2019">Dataset URL</a></li>
+		  <li><a href="https://arxiv.org/pdf/1907.06167.pdf">Model Reference URL</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

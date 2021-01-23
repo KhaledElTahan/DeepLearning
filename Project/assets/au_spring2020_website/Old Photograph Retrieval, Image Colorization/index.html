@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Old Photograph Retrieval, Image Colorization</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Old Photograph Retrieval, Image Colorization</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Mohamed EL-Bawab (08)</li>
+          <li>Khalil Ismail Khalil (23)</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Given a gray-scale image as input, we try to get an acceptable colored version
+			of it.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			We used Colornet dataset, it contains around 10,000 colored images for training and
+			500 gray-scale images for testing.
+		</p>
+		<a href="https://www.floydhub.com/emilwallner/datasets/colornet">Colornet Dataset</a>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/2.png" class="img-fluid text-center">
+    	</div>
+    	<div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/11.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			There is not state of art for this type of project as this algorithm is evaluated using a "colorization Turing test" asking human participants to choose between a generated and ground truth color image. This method successfully fools humans on 32% of the trials.
+		</p>
+	    
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Original Model from Literature</h2>
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/original_model.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+
+		<h5 class="mt-5">Update #1: Used a different model architecture.</h5>
+		
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/used_model.png" class="img-fluid text-center">
+    	</div>
+    	
+    	<h5 class="mt-5">Update #2: Trained our model with 10,000 images.</h5>
+  
+    	<h5 class="mt-5">Update #3: Added data augmentation with final train size of 50,000.</h5>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			We tried different hyper parameters.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/hyper parameters.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+
+	 	<ul>
+		  <li>Training hardware: Colab</li>
+		  <li>Training time: ~ 45 hours</li>
+		  <li>Number of epochs: 1000 epochs</li>
+		  <li>Time per epoch: [3:12] seconds</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+		<ul>
+		  <li>We see that the model needs to be trained with more images.</li>
+		  <li>The model is biased towards brown colors.</li>
+		  <li>The model gives better results with dark colors.</li>
+		  <li>Our max method on predicted values from different models gives good results.</li>
+		</ul> 
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+		  <li><a href="https://richzhang.github.io/colorization/">Colorful Image Colorization Website</a></li>
+		  <li><a href="https://arxiv.org/abs/1603.08511">Colorful Image Colorization Paper</a></li>
+		  <li><a href="https://github.com/richzhang/colorization">Colorful Image Colorization Github</a></li>
+		  
+
+		  <li><a href="https://richzhang.github.io/ideepcolor/">Real-Time User-Guided Image Colorization with Learned Deep Priors Website</a></li>
+		  <li><a href="https://arxiv.org/abs/1705.02999">Real-Time User-Guided Image Colorization with Learned Deep Priors Paper</a></li>
+		  <li><a href="https://github.com/junyanz/interactive-deep-colorization">Real-Time User-Guided Image Colorization with Learned Deep Priors Github</a></li>
+
+		  <li><a href="http://caffe.berkeleyvision.org/">Caffe Website</a></li>
+		  <li><a href="https://github.com/BVLC/caffe/">Caffe Github</a></li>
+
+		  <li><a href="https://www.researchgate.netpublication/322877446_Image_Colorization_with_Neural_Networks">Image Colorization with Neural Networks Paper</a></li>
+
+		  <li><a href="https://www.floydhub.com/emilwallner/datasets/colornet">Colornet Dataset</a></li>
+
+		  <li><a href="https://blog.floydhub.com/colorizing-b-w-photos-with-neural-networks/?fbclid=IwAR0J9Sk4SLdvlSEWS0wTDTJxQOpsWAw_cNjHzmLDUd3-uwrj0ALRxC8gyeA">Colorizing B&W Photos with Neural Networks Website</a></li>
+		
+		</ol> 
+		<br/>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

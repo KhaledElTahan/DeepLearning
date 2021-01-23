@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Project Title Here</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand"  href="index.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+        </ul>
+      </div>
+    </div>
+  </nav> 
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Floor Localization</h1>
+        <ul class="list-unstyled">
+          <li>Aya Ashraf   02</li>
+          <li>Khaled Barie 21 </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+    		<p>
+    			Create a floor localization system that can predict a user’s floor depending only on cellular signals
+    		</p>
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/problemStatment.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			  Due to the lack of proper datasets, we decided to collect our own by selecting a building on campus and collecting RSS samples using a set of phones. The process of collection involves starting an RSS logging app that can scan access the cellular API of the phone and produce RSS logs in a file. These logs are then tagged with the floor they were tagged from and processed to generate our training and test datasets. 
+        The data we collected was from the Electrical Engineering building in the Faculty of Engineering, Alexandria University which has 6 floors. Five different phones on two carriers were used in the collection process. Collected data undergoes the same 
+ 
+        pre-processing mentioned in <a href="#cellindeep">[1]</a> to produce RSS vectors used in training during the offline phase and for testing in the online phase .
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dataSet.png" class="img-fluid text-center">
+          <h5>vodafone dataset</h5>
+            <img src="resources/images/orangeds.png" class="img-fluid text-center">
+          <h5>Orange dataset</h5>
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+      <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+        
+      </div>
+      <br/> <!-- Empty Line after the image -->
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			Input is Fingerprints which are organized as a vector of the received signal strength heard from different cell towers in the area of collection. Each sample is paired with the floor it is collected from
+	  	</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/input.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+       <p>
+      The output is the floor number predicted used the Rss sample heard in the online phase
+
+    </p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			SkyLoc <a href="#Skyloc">[2]</a> solve the same problem by Calculating euclidean distance in RSS space from collected samples to estimate the floor of new samples
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/skyLoc.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Fully Connected Architecture</h2>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/fullyConnected.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Time Series Classification Architectures</h2>
+
+        <p>
+			We formalized the problem as a sequence model, leveraging a history of RSS scans to produce better predictions
+		</p>
+
+    <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/CNN.png" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5" style="font-weight: bold;">SerieNet Model</h5>
+		<p>
+		An architecture used in time series forecasting.We adapted the model to our problem by replacing the last layer with a softmax layer
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/time.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      <h5 class="mt-5" style="font-weight: bold;">InceptionTime Model</h5>
+    <p>
+Inspired from the Inception network architecture, using different kernels for convolution and concatenating their results    </p>
+    <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/inceptionM.png" class="img-fluid text-center">
+          <p>Inception Unit</p>
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/inc.png" class="img-fluid text-center">
+          <p>A full InceptiontionTime network comprising of successive inception units with residual connections</p>
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      <h5 class="mt-5" style="font-weight: bold;">ResNet Model</h5>
+    <p>
+      Follows the same architecture of the original ResNet but uses 1D convolutions
+    </p>
+    <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/resnet.png" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+		  For evaluation, we tested our models against the SkyLoc system<a href="#Skyloc">[2]</a> from literature. We start by evaluating our models against homogeneous datasets, i.e datasets train and test data are both sampled from the same collection/distribution (Either from the data of one mobile phone or from a shuffled collection from several phones). Accuracies of SkyLoc and the FC architecture are shown in the following table.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/homogeneous.jpg" class="img-fluid text-center">
+          <p>Accuracy of SkyLoc and FC models under homogeneous datasets from different devices</p>
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+           <p>
+     We then proceeded to experiment with heterogeneous datasets where train and test data are collected from different phones. We used a “leave on out” approach where we train our model using data from all phones except one, and use unseen data from that remaining phone for validation and test.Results are summarized in<a href="#table"> Table</a> and the plot in<a href="#plot"> Figure</a> showing within-k-floors accuracy at different values of K.
+        
+    </p>
+
+    <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img id = "table" src="resources/images/res2.png" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      <br/> <!-- Empty Line before the image -->
+      <div class="img-container" align="center"> <!-- Block parent element -->
+          <img id = "plot" src="resources/images/hetero_cdf.png" class="img-fluid text-center">
+      </div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <li>Programming framework 
+        <ul>
+          <li>TensorFlow keras</li>
+          <li>keras</li>
+        </ul>
+      </li>
+		  <li>Training hardware 
+         <ul>
+          <li> Google Colab</li>
+        </ul>
+      </li>
+		  <li>Training time
+        <ul>
+          <li>On average 10 minutes</li>
+        </ul>
+      </li>
+		  <li>Number of epochs
+        <ul>
+          <li>On average 5 to 20</li>
+        </ul>
+      </li>
+		  <li>Time per epoch</li>
+      <ul>
+          <li>On average 1 minute</li>
+        </ul>
+		</ul> 
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12 text-left">
+      <h2 class="mt-5">Conclusions</h2>
+     <ul>
+      <li>Alot of variations affect cellular data received by phones. Main variation factors we encountered:
+        <div><ul>
+          <li> Device/Hardware</li>
+          <li> Signal power variation overtime</li>
+          <li> Cell tower dropping</li>
+         </ul>
+       </div>
+      </li>
+      <li>Training hardware i.e. colab or azure or anything else
+         <div><ul>
+          <li>We recently conducted another round of data collection</li>
+          <li> We seperated the collection of training and test data and accuracy dropped to 30% on homogeneous data</li>
+         </ul>
+       </div>
+
+      </li>
+      
+    </ul> 
+
+    </div>
+  </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Future Work</h2>
+
+	    <p>
+			 We have recently collected more data from the same building as well as from another building (Administration building in the Faculty of Engineering). We aim to use this data to further investigate the behavior of scanned RSS samples and generate more insights to help us produce better-performing models.
+	  	</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+		<ol>
+		  <li id ="cellindeep"><a href="https://ieeexplore.ieee.org/document/8570849">CellInDeep</a></li>
+		  <li id ="Skyloc"><a href="https://www.researchgate.net/publication/221037304_The_SkyLoc_Floor_Localization_System">Skyloc</a></li>
+		  <li id ="seriesnet"><a href="https://ieeexplore.ieee.org/document/8489522">Seriesnet</a></li>
+       <li id ="inceptiontime"><a href="https://arxiv.org/abs/1909.04939">Inception Time</a></li>
+		</ol> 
+
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

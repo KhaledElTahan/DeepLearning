@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Handwritten Text Recognition System</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Handwritten Text Recognition System</h1>
+        <ul class="list-unstyled">
+          <li>Fatma Ibrahim 42</li>
+          <li>Ashraqat Sheta 13</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Handwritten Text Recognition is a technology that is much needed in the world  today. There are many documents that are written in papers by hand and now with computers everywhere in the world we need to access these documents with computers which is a very difficult process to do as we can’t rewrite them again in computers so this technology can definitely be used to do this task . Thanks to deep learning techniques the error percentage is very small and acceptable .
+			The task will be done by entering a handwritten document to the network and the document will be computerized .
+			And this is not the only usage of the technology as people can use it to enter their prescriptions which are in general not understandable and when they are computerized , they can easily read the content .
+			Writers and traditional peoples who still prefer to use a pen for writing and need other peoples to work for them to rewrite their papers as a softcopy can also benefit from this technology.  
+
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">IAM Handwriting Database</h2>
+
+        <p>
+			The IAM Handwriting Database contains forms of handwritten English text which can be used to train and test handwritten text recognizers and to perform writer identification and verification experiments.
+
+			The database contains forms of unconstrained handwritten text, which were scanned at a resolution of 300dpi and saved as PNG images with 256 gray levels.
+			</br>
+			We used two fields from the dataset to train the model:
+			<li>Words Folder</li>
+			<li>Sentence Folder</li>
+			
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/dataset.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			Examples to illustrate the dataset and the problem statement: 
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <li><div class="img-container" align="center" backgroung-color="black" border => <!-- Block parent element -->
+      		<img src="resources/images/1.png" class="img-fluid text-center">
+      		
+    	</div></li>
+    	<li> <div class="img-container" align="center" backgroung-color="black" border => <!-- Block parent element -->
+      		<img src="resources/images/22.png" class="img-fluid text-center">
+      		
+    	</div></li>
+    	<li> <div class="img-container" align="center" backgroung-color="black" border => <!-- Block parent element -->
+      		<img src="resources/images/32.png" class="img-fluid text-center">
+      		
+    	</div></li>
+
+    	 <li><div class="img-container" align="center" backgroung-color="black" border => <!-- Block parent element -->
+      		<img src="resources/images/42.png" class="img-fluid text-center">
+      		
+    	</div></li>
+
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			The art of word recognition models :
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+       
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/original.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        
+		<h5 class="mt-5">Update #1: Update In convolution layers </h5>
+		<p>
+			In word recognition this update in the convolution part made the model more accurate ..
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/proposed.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Update the model for line recognition</h5>
+		<p>
+			<li>Increase input size for a line image</li>
+			<li>Increasing the number of convolution layers  </li>
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/lastModel.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/accuracy.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+    	<div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/error.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			
+		</p>
+
+	 	<ul>
+		  <li>Programming framework : local Machine ubuntu v.18 Ram 4GB</li>
+		  <li>Training hardware google colab </li>
+		  <li>Training time : around 4 days</li>
+		  <ul>
+		  	<li>Proposed Model : 28 hours</li>
+		  	<li>Final Model : 3 days</li>
+		  </ul>
+		  <li>Number of epochs : 44 epochs </li>
+		  <li>Time per epoch :</li>
+		  <ul>
+		  	<li>Proposed Model : arround an hour</li>
+		  	<li>Final Model : arround 4 hours</li>
+		  </ul>
+		  <li>Other details and difficulties</li>
+		  <ul>
+		  	<li>Google Colab is not good in training such a model</li>
+		  	<li>Data size is a problem with current internet connection quality</li>
+		  	<li>Training needs advanced resources which we didn't have </li>
+		  	<li>Model needs an old version of tensorflow as it is not compatible with new version</li>
+		  </ul>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			<li>Conclusion
+				<ul>
+				<li>Accuracy : Our variations in the model architecture has increased the accuracy a little bit so changing the architecture is appreciated .</li>
+				<li>Auto Corrector : Has a role in improving the results</li>
+				<li>Dataset : A dataset from different fields (medical,engineering ,...) is recommended for  better recognition </li>
+				</ul>
+			</li>
+			<li>Future Work
+				<ul>
+					<li>Model Size : Developing the model so that it can take a complete page as an input.</li>
+					<li>Accuracy : Try to improve the accuracy</li>
+					<li>Applications : Train the model over a medical dataset so that it can recognize medical prescription .</li>
+				</ul></li>
+			<li>Lessons learned! 
+
+				<ul>
+					<li>Making many variations in the model helped us to understand what the problem really needs so that will help us to choose the best architecture for our problem .</li>
+					<li>Such a model needs long time for training so 
+					pre-trained models is better than start training from Zero level .</li>
+					<li>A huge variation in the dataset is needed .</li>
+					<li>Doing much research in different trained 
+					architectures for the problem and combine them to reach a better one .</li>
+				</ul>
+			</li>
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	
+	    </p>
+
+		<ol>
+		  
+		  <li><a href="http://www.fki.inf.unibe.ch/databases/iam-handwriting-database">Dataset URL</a></li>
+		  <li><a href="https://towardsdatascience.com/build-a-handwritten-text-recognition-system-using-tensorflow-2326a3487cd5">Word Recognition Model Reference URL</a></li>
+
+		  <li><a href="https://github.com/sushant097/Handwritten-Line-Text-Recognition-using-Deep-Learning-with-Tensorflow">Line Recognition Model Reference URL</a></li>
+		  <li><a href="https://repositum.tuwien.ac.at/obvutwhs/download/pdf/2874742">An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</a></li>
+		  <li><a href="https://arxiv.org/abs/1507.05717">Handwritten Text Recognition in Historical Documents</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

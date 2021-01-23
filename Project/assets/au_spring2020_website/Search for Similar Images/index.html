@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Search for Similar Images</title>
+      <!-- Bootstrap core CSS -->
+      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   </head>
+   <body>
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+         <div class="container">
+            <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                     <a class="nav-link" href="../home.html">Home
+                     <span class="sr-only">(current)</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="../about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="../contact.html">Contact</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Page Content -->
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 text-center">
+               <h1 class="mt-5">Search for Similar Images</h1>
+               <ul class="list-unstyled">
+                  <li>Islam Gamal Mohamed #11</li>
+                  <li>Karim Mohamed Awd #45</li>
+               </ul>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-left">
+               <h2 class="mt-5">Problem Statement</h2>
+               <p>
+                  We are trying to implement a simple and efficient way to do the searching by image. Search by image can be useful in detecting rumors, finding the attached news or finding simillar products.
+                  We choosed to implement the search by image using the Autoencoders technique and to acheive a new state of the art for this model in this problem.
+               </p>
+               <p>The search by Image can be achieved by Autoencoders through the following way
+                <ul>
+                  <li>Encoder : Encodes the image into 1D vector array</li>
+                  <li>Decoder : Decodes the image back from the array and check the error</li>
+                  <li>The Decoder part is removed (to be used later )</li>
+                  <li>The Encoder part is used to Encode the whole dataset of images into 1D arrays.</li>
+                  <li>Whenever an image query is received, Just encode it too and extract the nearest ‘N’ neighbours to this array.</li>
+                  <li>finally, Decode the candidates using the decoder.</li>
+                </ul>
+                </p>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-left">
+               <h2 class="mt-5">Dataset</h2>
+               <p>
+                  We used two datasets,
+               <ol>
+                  <li>MNIST Handwriting</li>
+                  <li>MNIST Fashion</li>
+               </ol>
+               </p>
+               <br/> <!-- Empty Line before the image -->
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/dataset.png" class="img-fluid text-center">
+               </div>
+               <br/> <!-- Empty Line after the image -->
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-left">
+               <h2 class="mt-5">Input/Output Examples</h2>
+               <br/> <!-- Empty Line before the image -->
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/examples.png" class="img-fluid text-center">
+               </div>
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/examples2.png" class="img-fluid text-center">
+               </div>
+               <br/> <!-- Empty Line after the image -->
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-left">
+               <h2 class="mt-5">State of the art</h2>
+               <br/> <!-- Empty Line before the image -->
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/soe1.png" class="img-fluid text-center">
+               </div>
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/soe2.png" class="img-fluid text-center">
+               </div>
+               <br/> <!-- Empty Line after the image -->
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-left">
+               <h2 class="mt-5">Orignial Model from Literature</h2>
+               <p>
+                  People used many variations to implement the autoencoder, some of them was fully convolutional (convolution then upsampling), some of them was using deconvolution instead of up sampling and some people used the FC layers between the encoder and the decoder to increase the number of parameters.
+               </p>
+               <br/> <!-- Empty Line before the image -->
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/o_model1.png" class="img-fluid text-center">
+               </div>
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/o_model2.png" class="img-fluid text-center">
+               </div>
+               <br/> <!-- Empty Line after the image -->
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12 text-left">
+               <h2 class="mt-5">Proposed Updates</h2>
+               <p>We worked on 4 updates</p>
+               <h5 class="mt-5">Update #1: Mixing and tuning parameters for some models </h5>
+               <p>
+                  We tried to mix between the approaches, increasing and decreasing the FC layers, tuning the Optimizers and Loss functions, etc.. 
+                  These are the models that we tried while implementing the AutoEncoder, We tried:
+                  <ol>
+                    <li>Using fully connected layers only</li>
+                    <li>Using a Fully Convolutional way (Convolution + upSampling)</li>
+                    <li>Using DeConvolution instead of the UpSampling</li>
+                    <li>Using a mix between 1 & 2</li>
+                    <li>Using a mix between 1 & 3</li>
+                  </ol>
+               </p>
+            </div>
+         </div>
+         <h5 class="mt-5">Update #2: Used AE as Denoiser</h5>
+         <p>
+            Given a dataset, we applied some noise to it, and tested how the Normal AutoEncoder will respond.
+         </p>
+         <br/> <!-- Empty Line before the image -->
+         <div class="img-container" align="center">
+            <!-- Block parent element -->
+            <img src="resources/images/denoiser_not_work.png" class="img-fluid text-center">
+         </div>
+         <br/> 
+         <p>
+            Then we trained a new Autoencoder model which we trained it on how to denoise the noised images (which for sure will help in enhancing searching by images even if
+            the input image in a little noisy).
+         </p>
+         <br/> <!-- Empty Line before the image -->
+         <div class="img-container" align="center">
+            <!-- Block parent element -->
+            <img src="resources/images/denoiser_work.png" class="img-fluid text-center">
+         </div>
+         <br/> <!-- Empty Line after the image -->  
+         <h5 class="mt-5">Update #2: Used VAE instead of traditional AE</h5>
+         <p>
+            Given a dataset that we want to encode it all, the resulted latent layers will be in a clustering form, not a continuous form, so if a target image contained some noise or error , there is a high probability that the produced vector will not be close to the original one , it may be considered as another cluster.
+         </p>
+         <p>
+            So using Variational autoencoders, the encoded dataset will be in a continuous way since the latent layers has learnt a distribution in the input images.
+            So it will be more reasonable and confidential to use the nearest neighbour algorithms to find the target image from it’s encoded version.
+         </p>
+         <br/> <!-- Empty Line before the image -->
+         <div class="img-container" align="center">
+            <!-- Block parent element -->
+            <img src="resources/images/vae2.jpg" class="img-fluid text-center">
+         </div>
+         <br/> <!-- Empty Line after the image -->  
+          <h5 class="mt-5">Update #4: Used RNN instead of CNN</h5>
+               <p>
+                  We though of replacing the CNN with a RNN and see how would that affect the performance which may help in Searching videos since using videos instead of images will create a sequence on images (frames) and predicting the next frame will enhance the searching speed so that we will be leading with a frame.
+               </p>
+               <br/> <!-- Empty Line before the image -->
+               <div class="img-container" align="center">
+                  <!-- Block parent element -->
+                  <img src="resources/images/RNN_model.png" class="img-fluid text-center">
+               </div>
+               <br/> <!-- Empty Line after the image -->    
+        <div class="row">
+           <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Results</h2>
+              <h4>Concerning the Mixing and Tuning approach</h4>
+              <p>
+                 We succeeded in achieving a better performance and we beated the best loss values that we found on the internet.
+              </p>
+              <br/> <!-- Empty Line before the image -->
+              <div class="img-container" align="center">
+                 <!-- Block parent element -->
+                 <img src="resources/images/weVSthem.png" class="img-fluid text-center">
+              </div>
+              <br/> <!-- Empty Line after the image -->
+           </div>
+        </div>
+        <h4>Concerning the Denoiser approach</h4>
+        <p>
+           We succeeded in training an AutoEncoder model that can denoise the salt & pepper noise and reconstruct an image without any noise. 
+        </p>
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center">
+           <!-- Block parent element -->
+           <img src="resources/images/denoiser_work.png" class="img-fluid text-center">
+        </div>
+        <br/> 
+        <h4>Concerning the Variational AutoEncoder approach</h4>
+        <p>
+           Our idea of using the VAE instead of the AE for sure made it more efficient and confidential to use the K-nearest neighbours algorithms since although there is noise in image, it will produce a vector that is relatively near to the original image
+        </p>
+        <br/> <!-- Empty Line before the image -->
+        <p>example:</p>
+        <div class="img-container" align="center">
+           <!-- Block parent element -->
+           <img src="resources/images/vae_example.png" class="img-fluid text-center">
+        </div>
+        <br/><!-- Empty Line after the image -->
+        <div class="img-container" align="center">
+           <!-- Block parent element -->
+           <img src="resources/images/test_vae2.png" class="img-fluid text-center">
+        </div>
+        <br/>
+        <h4>Concerning the RNN approach</h4>
+        <p>
+           Since there is no sequence in the input, they are just random consecutive numbers from 0 to 9 so we figured out not confidential to use the RNN for this type of problems except
+           Sorting the input in a circular way → 0, 1,2,3 .. ,8 , 9, 0, 1 2 .. and learn the natural counting pattern in order to identify whether an input sequence is in correct counting order or not.
+        </p>
+        <div class="row">
+           <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Technical report</h2>
+              <p>
+                 Here you will detail the details related to training, for example:
+              </p>
+              <ul>
+                 <li>Programming framework : TensorFlow</li>
+                 <li>Training hardware: Colab</li>
+                 <li>Training time:</li>
+                 <ul>
+                  <li>VAE: 10 mins</li>
+                  <li>AE:</li>
+                  <ul>
+                    <li>Fully connected: 3.5 min</li>
+                    <li>Fully Convolutional: 7.5 min</li>
+                    <li>Convolution + De Convolution: 8.5 min</li>
+                    <li>Mixing FC + Conv: 6.5 min</li>
+                  </ul>
+                 </ul>
+                 <li>Number of epochs : 50</li>
+                 <li>Time per epoch</li>
+                 <ul>
+                  <li>VAE: 12 sec</li>
+                  <li>AE:</li>
+                  <ul>
+                    <li>Fully connected: 4s </li>
+                    <li>Fully Convolutional: 9s</li>
+                    <li>Convolution + De Convolution: 10s</li>
+                    <li>Mixing FC + Conv: 8s</li>
+                  </ul>
+                 </ul>
+                 <li>We didn't actually implemented the Nearest neighbour part. we Focused on the core of the search engine which is the AE implementations.</li>
+              </ul>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12 text-left">
+              <h2 class="mt-5">Conclusion</h2>
+              <p>
+                <ul>
+                  <li>We concluded that Autoencoder can be enhanced by adding FC layers, replacing the upsampling with Deconvolution.</li>
+                  <li>Variational autoencoders are more confidential and powerful to be used in the search by image problem </li>
+                  <li>on encoding the whole dataset we found that</li>
+                  <ul>
+                    <li>VAEs produces a continuous distributed datasets.</li> 
+                    <li>AEs produces a clustered (discrete) datasets.</li>
+                  </ul>
+                  <li>Given a noisy, cropped, rotated or blurred image, AE will produce relatively far and not similar encoding vectors even they are for the same image.</li>
+                 <li>VAE will produce relatively close encoding vectors, that's why we are more powerful and confidential in applying the Nearest Neighbour Algorithm.</li>
+                 <li>We can make the normal AE be able to reconstruct noised images by originally training it into that (giving training dataset as noisy vs denoised).</li>
+                 <li>Using RNNs or Attention Model in this problem is Useless. (There is no sequence)</li>
+                </ul>
+              </p>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12 text-left">
+              <h2 class="mt-5">References</h2>
+              <p>
+                 List all references here, the following are only examples
+              </p>
+              <ol>
+                <li><a href="https://www.kaggle.com/oddrationale/mnist-in-csv">MNIST Dataset (Handwriting)</a></li>
+                 <li><a href="https://www.kaggle.com/zalando-research/fashionmnist">MNIST Dataset (Fashion)</a></li>
+                 <li><a href="https://towardsdatascience.com/aligning-hand-written-digits-with-convolutional-autoencoders-99128b83af8b">Models Reference</a></li>
+                 <li><a href="https://towardsdatascience.com/build-a-simple-image-retrieval-system-with-an-autoencoder-673a262b7921">Models Reference</a></li>
+                 <li><a href="https://medium.com/analytics-vidhya/building-a-convolutional-autoencoder-using-keras-using-conv2dtranspose-ca403c8d144e">Models Reference</a></li>
+              </ol>
+           </div>
+        </div>
+      </div>
+      <!-- Bootstrap core JavaScript -->
+      <script src="../vendor/jquery/jquery.slim.min.js"></script>
+      <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

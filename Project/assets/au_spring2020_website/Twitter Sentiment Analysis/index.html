@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Twitter Sentiment Analysis</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Twitter Sentiment Analysis</h1>
+        <ul class="list-unstyled">
+          <li>by : Marina Zakaria</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Twitter sentiment analysis is a specialized area within sentiment analysis, a
+prominent topic of research in the field of computational linguistics. Approaches to
+sentiment analysis identify and evaluate opinions expressed in text using
+automated methods. Sentiment analysis has been performed in a variety of genres
+of communication including professional media like news articles as well as social
+media like product reviews , web forums . </p>
+<p>The growth in sentiment analysis
+research has followed that of social media, as researchers and firms pursue the
+valuable opinions of large populations of users.
+Sentiment analysis tasks include classification of sentiment polarity expressed in
+text (e.g., positive, negative, neutral), identifying sentiment target/topic, opinion
+holder identification, and identifying sentiment for various aspects of a topic,
+product, or organization . Sentiment polarity classification has emerged as one of
+the most studied tasks due to its significant implications for various social media
+analytics use cases. The sentiment polarity classification problem is often
+modeled as a two-way (positive/negative) or three-way (positive/negative/neutral)
+classification of a unit of text</p>
+<p>From various applications of sentiment analysis , we’ve chosen the twitter
+sentiment analysis problem because of the availability of datasets and various ways
+of constructing the model which would give us wide options for trial and search ...
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+			First source :To make it easier for developers , twitter has developed an API used to provide
+the developer with some links used in the python code to stream tweets about a specific
+threads , more about that here : https://developer.twitter.com/</p>
+<p>Second source : SemEval-2017(this is a twitter contest , the data set is available by twitter
+for educational purposes )
+http://alt.qcri.org/semeval2017/task4/index.php?id=data-and-tools
+Data is tweets as sentences and labeled by one of three values (positive , negative , neutral
+)
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/data.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+        <p>
+			input :Won the match #getin . Plus\u002c tomorrow is a very busy day\u002c with Awareness Day\u2019s and debates. Gulp. Debates..
+			</p>
+			<p>output :neutral</p>
+			<p>input : @mariakaykay aga tayo tomorrow ah. :) Good night\u002c Ces. Love you! >:D<
+			</p>
+			<p>output : positive</p>
+			<p>input : @prodnose is this one of your little jokes like Elvis playing at the Marquee  next Tuesday?
+			</p>
+			<p>output : negative
+			
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/soa.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <h3>
+			Pre-Processing</h3>
+<p>Step 1 : We use a popular word2vec neural language model (Mikolov et al., 2013) to
+learn the word embeddings on an unsupervised tweet corpus. (that’s how the word
+vector mentioned above is built ) . We perform minimal preprocessing tokenizing
+the tweets, normalizing the URLs and author ids. To train the embeddings we use a
+skipgram model(technique used by the word2vec model) with window size 5 and
+filtering words with frequency less than 5.</p>
+<p>Step 2: for supervised learning : URLs are replaced by the token. • Several
+emoticons are replaced by the tokens , , or . • Any letter repeated more than 2 times
+in a row is replaced by 2 repetitions of that letter (for example, “sooooo” is replaced
+by “soo”). • All tweets are lowercase.</p>
+<h3>II. CNN</h3>
+<p>1)The input would be the sentence represented as a padded word matrix (each
+column represents a single word )</p>
+<p>2) the filter would be taken from filter bank represents different word embeddings
+Note that the convolution filter is of the same dimensionality d as the input
+sentence matrix this is realized through the paddings added to both the filter and
+the sentence matrix to achieve same dimensions</p>
+<p>3) for each convolutional layer we use an activation function :
+To allow the network to learn non-linear decision boundaries we use non-linearities
+at the convolutional layer that might be of type ( relu , tanh , ....)
+This decision for activation functions used and number of layers is taken based on
+the behavior of the network which activation function would achieve best accuracy
+in acceptable time range would be chosen for the model</p>
+<p>4)Regularization
+Regularization is managed through several functions that organize a complex neural
+network to avoid overfitting that impacts the performance of deep learning models.
+We use the two main types, dropout and L2, which consist in penalizing large
+weights in order to optimize the neural network.
+(the ratio of both are hyper parameters to be tuned)</p>
+<p>5) Optimization
+Optimization is used in training deep learning algorithms for updating the model
+parameters (weights and bias values) across iterations.
+
+</p>
+<p>
+We’ll be using Adaptive Moment Estimation (Adam) with decaying learning rate that
+would be a hyper parameter tuned during the next milestone.
+</p>
+<p>6) pooling : the result of the convolution layers and non linearity is passed to pooling
+layer , the goal is to aggregate the information and reduce the representation
+We choose max pooling for this model (more commonly used than average pooling
+and simpler )</p>
+<h3>III. BiLSTM</h3>
+<p>Why would we use this additional layer ?</p>
+<p>This layer takes the sequential order between the data into consideration. It allows
+detecting the links between the previous inputs and the output.
+The input of this layer is the concatenation of the max pooling results</p>
+<p>How does BiLSTM work ? two LSTMs whose outputs are stacked together. One
+LSTM reads the sentence forward, and the other LSTM reads it backward. We
+concatenate the hidden states of each LSTM after they processed their respective
+final word. This gives a vector of dimension , which is fed to a fully connected hidden
+layer , and then passed through a softmax layer to give the final classification
+probabilities.</p>
+<p>Here again we use dropout to reduce overfitting; we add a dropout layer before and
+after the LSTMs, and after the fully connected hidden layer, with a dropout
+probability that’s tuned during training(probably 50%).
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/oldmodel.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+			<p> don't use any filter banks and yet keep acceptable accuracy...how ?</p>
+        <p>
+			1)Replace the word2vec with more efficient technique that’s available in the NLP python package
+			</p><p>2)Try different network structures
+
+		</p>
+
+		<h5 class="mt-5">Update #1: used elmo + glove instead of word2vec for embeddings</h5>
+		<p>
+			combined the benefits of glove ( arithmetic operations and cos semelarity on embeddings )dim = 300
+			</p>
+			<p>with benefits of elmo ( different embeddings for the same word based on he context) dim = 1024
+			</p>
+			<p>concat dim =1324
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/elmo.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Used biattentive classification network</h5>
+		<p>
+			At a high level, the model starts by embedding the tokens and running them through
+   a feed-forward neural net (``pre_encode_feedforward``). Then, we encode these
+   representations with a ``Seq2SeqEncoder`` (``encoder``). We run biattention
+   on the encoder output representations (self-attention in this case, since
+   the two representations that typically go into biattention are identical) and
+   get out an attentive vector representation of the text. We combine this text
+   representation with the encoder outputs computed earlier, and then run this through
+   yet another ``Seq2SeqEncoder`` (the ``integrator``). Lastly, we take the output of the
+   integrator and max, min, mean, and self-attention pool to create a final representation,
+   which is passed through a maxout network or some feed-forward layers
+   to output a classification (``output_layer``).
+
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/bcn(1).png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			best result obtained on 2017 data set at using elmo+glove+bcn model at 0.68 accuracy
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/old results.png" class="img-fluid text-center">
+    	</div>
+		<p>
+			litterature model results max accuracy of .74
+		</p>
+    	<br/> <!-- Empty Line after the image -->
+		<div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/experiment results.png" class="img-fluid text-center">
+    	</div>
+		<p>
+			results after trying variant updates max of .68
+		</p>
+    	<br/> <!-- Empty Line after the image -->
+      
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <li>Programming framework</li>
+		  <li>Training hardware i.e. colab or azure or anything else</li>
+		  <li>Training time</li>
+		  <li>Number of epochs</li>
+		  <li>Time per epoch</li>
+		  <li>Any other important detail or difficulties</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			Conclusion and future work (including lessons learned and interesting findings
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	The literature model has a better performance at max of 0.74 but the model that I propose doesn’t need the filter bank as proposed by the doctor and has an acceptable performance of 0.682 comparing to using the literature model with no predefined filter bank 
+	    </p>
+
+		<ol>
+		  <li><a href="https://arxiv.org/pdf/1704.06125v1.pdf?fbclid=IwAR0s3uEOGLDF43gGDju49LYoOBYZV8mU
+rr6gPg7855MSFBVIIn8k8l5qYYw">BB twtr at SemEval-2017 Task 4: Twitter Sentiment Analysis with CNNs and LSTMs
+Mathieu Cliche Bloomberg mcliche@bloomberg.net</a></li>
+		  <li><a href="https://www.researchgate.net/publication/304916478_Like_It_or_Not_A_Survey_of_Twitter_
+Sentiment_Analysis_Methods
+">Like It or Not: A Survey of Twitter Sentiment Analysis Methods
+Article :A CNN-BiLSTM Model for Document-Level Sentiment Analysis</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Facial Expression Recognition (FER)</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Facial Expression Recognition</h1>
+        <ul class="list-unstyled">
+          <li>Sarah Eldafrawy</li>
+          <li>Mostafa Labib</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+            Facial Expression Recognition (FER), as the primary processing method for non-verbal intentions, is an important and promising field of computer vision and artificial intelligence, and one of the subject areas of symmetry. Behaviors, actions, poses, facial expressions and speech; these are considered as channels that convey human emotions. Extensive research has been carried out to explore the relationships between these channels and emotions. This proposal proposes a system which automatically recognizes the emotion represented on a face. Thus a neural network based solution combined with image processing is used in classifying the universal emotions.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+            FER2013 Face Dataset
+            It includes 35,887 face images wild and spontaneous not pre-defined simulating real world pictures taken. Also, it contains images taken in a fixed position and pre-prepared environment. The dataset state of the art using CNN approach is 72.1%.
+		</p>
+
+<!--		<br/> &lt;!&ndash; Empty Line before the image &ndash;&gt;-->
+<!--	    <div class="img-container" align="center"> &lt;!&ndash; Block parent element &ndash;&gt;-->
+<!--      		<img src="resources/images/imagenet.jpeg" class="img-fluid text-center">-->
+<!--    	</div>-->
+<!--    	<br/> &lt;!&ndash; Empty Line after the image &ndash;&gt;-->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/examples.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/state-of-the-art.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/main.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Models</h2>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      	  <img src="resources/images/resnet.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/inceptionresnt.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+          <img src="resources/images/vgg.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			The best model we proposed is the Resnet model it overcomes two of the state of the art models with Accuracy 62%. The two other models was out of the competition
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/resnet-result.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/inceptionresnet-result.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+
+          <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/vgg-result.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+	 	<ul>
+		  <li>We used Python Keras to build, train and test our models. We also used numpy, opencv, matplotlib and scipy for utils purposes</li>
+		  <li>We used colab with tpu and azure</li>
+		  <li>Resnet takes about 2.5 hours to finish training</li>
+		  <li>Number of epochs: 15</li>
+		  <li>Time per epoch: about 10 minutes</li>
+		  <li>Inceptionresnet needs high computational power so in order to test it in feasible time we used part of the dataset</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Future work</h2>
+
+          <ol>
+              <li>Continue hyperparameters tuning. </li>
+              <li> Optimize Resnet Inception model.</li>
+              <li> Provide needed processing power to reach better accuracy.</li>
+              <li> Try other datasets to address the FER problem.</li>
+          </ol>
+          <h2 class="mt-5">Lessons learned & interesting findings</h2>
+
+          <ol>
+              <li>Don’t try to re-implement model keras already implemented, it will be much worse</li>
+              <li> Validation plots were misleading most of the time</li>
+          </ol>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	List all references here, the following are only examples
+	    </p>
+
+		<ol>
+		  <li><a href="https://thesai.org/Publications/ViewPaper?Volume=9&Issue=11&Code=ijacsa&SerialNo=95"> Cubic SVM+HoG</a></li>
+            <li><a href="https://arxiv.org/abs/1705.01842"> CNN</a></li>
+            <li><a href="https://arxiv.org/abs/1511.04110"> CNN(DeeperCNN)</a></li>
+		  <li><a href="https://datarepository.wolframcloud.com/resources/FER-2013">Dataset URL</a></li>
+            <li><a href="https://www.mdpi.com/2073-8994/11/10/1189/htm">Facial Expression Recognition: A Survey</a></li>
+
+        </ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

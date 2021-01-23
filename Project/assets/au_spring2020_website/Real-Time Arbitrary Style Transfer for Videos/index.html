@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Real-Time Arbitrary Style Transfer for Videos</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Real-Time Arbitrary Style Transfer for Videos</h1>
+        <ul class="list-unstyled">
+          <li>Mario Hany Hunter</li>
+          <li>Merit Victor</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Artistic Style Transfer deals with generating an output that has the same style of a refernce style image. It has been explored extensively in the context of Image Stylation.
+      <br>
+      Many attempts were made in the field of Video Style Transfe. And, while it produced good results, it often came short in the trade-off between making real-time styling or create a network for arbitrary style.
+      They either solved the problem by a feed forward network for a specific style keeping the video coherent, or as an optimization problem which takes a lot of time but can be adapted to any style.
+      <br>
+      Thus, it was logical to think of an approach that can overcome these two challenges together.
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+          The data set used in training is the MPI Sintel dataset. The open source animated movie Sintel.
+          <br>
+          It has been split into multiple scenes, where each scene contains the frames along with ground truth optical flow and occlusion masks.
+
+
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/mpi.jpg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+
+        <video  controls>
+  			<source src="resources/videos/original_alley_2.mp4" type="video/mp4">
+		</video>
+		
+		 <video  controls>
+  			<source src="resources/videos/app1_out_alley_2.mp4" type="video/mp4">
+		</video>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+        <h3 class="mt-1">
+          RecoNet Video Style Transfer
+        </h3>
+
+          <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources/images/reco-results.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+
+          <h3 class="mt-1">
+            Arbitrary Image Style Transfer
+          </h3>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/giasi-results.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <h3 class="mt-1">
+          RecoNet Video Style Transfer
+        </h3>
+        <p>
+          It tackled the slow run time problem by using pre-trained style networks. They used feed forward networks and minimized the temporal lossusing ground truth optical flow.
+          The feed forward algorithms are convenient for inference since they can compute predictions very fast.
+		      </p>
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/reco-images.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <h3 class="mt-1">
+      Arbitrary Image Style Transfer
+    </h3>
+    <p>
+      It trains a network to find Style Embeddings. Given a style image it predicts a style vector capturing the textures and features of the style.
+       Then, this vector is fed to an auto-encoder network which uses it to transform its activations, which in turn leads to a different style output.
+      </p>
+
+      <br/> <!-- Empty Line before the image -->
+  	    <div class="img-container" align="center"> <!-- Block parent element -->
+        		<img src="resources/images/giasi-images.png" class="img-fluid text-center">
+      	</div>
+      	<br/> <!-- Empty Line after the image -->
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+        <br/> <!-- Empty Line before the image -->
+
+        <p>
+			The two models are fused, using the pre-trained architecture of arbitrary style transfer with the loss networks and training process of RecoNet.
+		</p>
+
+    <div class="img-container" align="center"> <!-- Block parent element -->
+        <img src="resources/images/proposed-models.png" class="img-fluid text-center">
+    </div>
+    <br/> <!-- Empty Line after the image -->
+  </div>
+</div>
+
+		<h5 class="mt-5">Update #1: Add temporal consistency loss to the model</h5>
+		<p>
+      The
+temporal loss is measured on multiple levels, using
+ground truth optical flows, which gives the model higher
+accuracy. First, the difference between the output and the
+warped previous output - generated using ground truth
+optical flows, is computed. The L 2 distance is
+computed of the difference between the two quantities
+and masked in occluded regions using a ground truth
+mask.
+		</p>
+
+		 <div class="img-container" align="center"> <!-- Block parent element -->
+        	<img src="resources/images/Frame by Frame inference results.png" class="img-fluid text-center">
+    	</div>
+    <br/> <!-- Empty Line after the image -->
+
+
+		<h5 class="mt-5">Update #2: Using Two-frame learning Synergic</h5>
+		<p>
+      The training adopts a two-frame synergic mechanism,
+two runs are used to compute the stylized output of
+two frames, and then are fed to the loss function to
+compute the gradients and update the network.
+		</p>
+
+		<div class="img-container" align="center"> <!-- Block parent element -->
+        	<img src="resources/images/ReCoNet Training with small learning rate.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+    	<div class="img-container" align="center"> <!-- Block parent element -->
+        	<img src="resources/images/ReCoNet training with larger learning rate.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+          Using the weights produced by the Arbitrary Style Transfer for images, the stability error was an order of magnitude higher than that of State-Of-The-Art models.
+
+    Continuing the trainining, pushed the model to decolorize the network and smudge contents a little. This is due to lack of hyper parameters tuning caused by high computational power needed and environment problems.
+
+    However, qualitative analysis shows that the videos are visually pleasant and quite stable and works for any arbitrary style.
+
+    Further, the model produces around 10 frames per second. This is before performing knwoeldge distillation to produce smaller models and exporting TF lite version for for mbile which is expected to make the model even faster meeting real-time benchmarks easily.
+
+		</p>
+		
+		<div class="img-container" align="center"> <!-- Block parent element -->
+        	<img src="resources/images/Comparison using the FPS.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+    	<div class="img-container" align="center"> <!-- Block parent element -->
+        	<img src="resources/images/Comparison using the stability error.png" class="img-fluid text-center">
+    	</div>
+    	<br/>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <li>Magenta Project Built using TF v1</li>
+		  <li>Colab with GPU support</li>
+		  <li>10 seconds for each training step for 1012 step per epoch</li>
+		  <li>5 epochs</li>
+		  <li>2 - 3 hours per epoch</li>
+		  <li>The training process requires high GPU specs. Further, it needs a lot of ram when saving checkpoints, which caused the runtime to crash repeadetly after only 300 steps.</li>
+      <li>New loss functions needed warping functions that are only available for TF v1.</li>
+      <li>The magenta project used deprecated calls and old version of TF which caused comptability problems</li>
+		</ul>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+        Even though the stability error is one order of magnitude higher, the outputs is quite good.
+  This might be due that the following fact. The objects were styled in the same manner across frames, same textures and colors. However, color strokes may get smaller or larger.
+  While this gives the video a painting feeling, it was penalized by Estab.
+
+
+
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+      <li>L. A. Gatys, A. S. Ecker, and M. Bethge, “A neural algorithm of artistic style,” 2015.</li>
+      <li>J. Johnson, A. Alahi, and L. Fei-Fei, “Perceptual losses for real-time style transfer and super-resolution,” 2016.</li>
+        <li>M. Ruder, A. Dosovitskiy, and T. Brox, “Artistic style transfer for videos,” Pattern Recognition, p. 26âĂŞ36, 2016. [Online]. Available: http://dx.doi.org/10.1007/978-3-319-45886-1_3</li>
+          <li>H. Huang, H. Wang, W. Luo, L. Ma, W. Jiang, X. Zhu, Z. Li, and W. Liu, “Real-time neural style transfer for videos,” in The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), July 2017.</li>
+      <li>C. Gao, D. Gu, F. Zhang, and Y. Yu, “Reconet: Real-time coherent video style transfer network,” 2018.</li>
+      <li> G. Ghiasi, H. Lee, M. Kudlur, V. Dumoulin, and J. Shlens, “Exploring the structure of a real-time, arbitrary neural artistic stylization network,” 2017.</li>
+
+		</ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

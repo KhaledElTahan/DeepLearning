@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Image Caption Generator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Image Caption Generator</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Khaled Mohammed AbuElyazeed (05)</li>
+          <li>Mohamed AboBakr (51)</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+      Image caption generation is the process of generating suitable captions for any specific image after breaking the image
+      down into features then choosing words corresponding to these features.<br>
+      There may be more than one valid caption for one image and it’s ok, they are all correct.
+		</p>
+    <p>
+      The generation goes as follows:
+      <ol>
+        <li>The image is passed to a Convelutional neural network (CNN) to break it down into features.</li>
+        <li>These features are passed to a decoder.</li>
+        <li>The Long Short Term Memory (LSTM) network generates a dense layer of words based on the current generated sequence of words.</li>
+        <li>The dense layer is passed to the decoder to be merged with the image features. </li>
+        <li>The output of the decoder is passed to a softmax layer to choose one word "Next word in sequence".</li>
+        <li>The word generated is merged with the current sequence as input for the next iteration of the process.</li>
+        <li>Steps from "3" to "5" are repeated till the generated sequence of words makes a suitable sentence.</li>
+      </ol> 
+      <p>Note: in the first and last iterations, the LSTM passes the keywords "Start Sequence" and "End Sequence" to inform the decoder model
+        that it will start sending the sequence or stop sending it and finishes the sentence.
+      </p>
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <p>
+          We used Flickr8k dataset.
+        </p>
+        <p>
+          Below is an image and its captions from the dataset.
+        </p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/Dataset snip.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/11.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+      There isn't a well-known state of the art model for image caption generation due to it's versatility.<br>
+      There're numerous models for CNN, RNN and word embeddings, trying different combinations of these models yields different results each time.
+    </p>
+    <p>We relied on <a href="https://arxiv.org/pdf/1703.09137">Where to put the Image in an Image Caption Generator</a>,
+       a paper made by Marc Tanti and Albert Gatt,
+      Institute of Linguistics and Language Technology, University of Malta.<br>
+    These are their results for running 4 different models on the same dataset we're using:
+    </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/SOTA.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+    <p>This is the commonly used archeticture (Merge archeticture).</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/OriginalModel.png" class="img-fluid text-center">
+    	</div>
+      <br/> <!-- Empty Line after the image -->
+      <p>This is our model based on the archeticture above.</p>
+      <br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/ModelArch2.jpg" class="img-fluid text-center">
+    	</div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+		<h5 class="mt-5">Update #1: Used "Beam Search" instead of "Greedy Search"</h5>
+		<p>
+			Beam search should give better results as it chooses K words with highest probabilities and keeps track of the whole sentence. 
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/beam_search.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center" style="display: block;"> <!-- Block parent element -->
+      		<img src="resources/images/graph.png" class="img-fluid text-center">
+    	</div>
+      <br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+  <br/>
+
+    <div class="row" >
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+	 	<ul>
+		  <li>Programming framework: Python, Tensorflow</li>
+		  <li>Training hardware: Colab</li>
+		  <li>Training time: Around 70 - 80 min for each model we tried</li>
+		  <li>Number of epochs: 30 epochs</li>
+		  <li>Time per epoch: Estimated time was 2 min</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+        <ul>
+          <li>Better results are achieved when using pretrained FastText embeddings and LSTM unlike GloVe and GRU network.</li>
+          <li>Applying “Beam Search” gave captions more related to the image than “Greedy Search”.</li>
+        </ul>
+      </p>
+
+	  </div>
+  </div>
+  
+  <div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Future Work</h2>
+
+	    <p>
+        <ul>
+          <li>Apply “Character level” technique for better sequence generation.</li>
+          <li>Trying different CNN networks as the ones tried extracted some image  features in a poor way.</li>
+          <li>Support object detection and color detection for better generated captions.</li>
+        </ul>
+      </p>
+
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+      <li><a href="https://arxiv.org/pdf/1703.09137">Where to put the Image in an Image Caption Generator?</a></li>
+      <li><a href="https://arxiv.org/pdf/1708.02043">What is the Role of Recurrent Neural Networks (RNNs) in an Image Caption Generator?</a></li>
+		  <li><a href="https://www.kaggle.com/ming666/flicker8k-dataset?fbclid=IwAR3qGQ2h9KhI8gPYbJnkW0de0Wsjv1P4SEK_v-Tae_0gS1fN_E4vlV6fLpU">Flickr8k dataset</a></li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

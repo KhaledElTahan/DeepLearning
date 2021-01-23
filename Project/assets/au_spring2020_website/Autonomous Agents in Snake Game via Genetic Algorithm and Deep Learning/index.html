@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Autonomous Agents in Snake Game via Genetic Algorithm and Deep Learning</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Autonomous Agents in Snake Game via Genetic Algorithm and Deep Learning</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Magedy</li>
+          <li>Mohamed Kamal El-Shazly</li>
+          <li>Hesham Medhat</li>
+
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+       The classical game Snake was a world’s amusement since 1977. The game is
+      about challenging a snake on the screen to be able to manage moving around a
+      2 dimensional grid to get rewards (apples/food). The agent should follow the following rules:
+
+
+      <ul> 1. Upon eating food, the snake gets its body grown</ul>
+
+      <ul>2. The snake has the choices of either:<br>
+      <ol> A. Continuing to move forward in the given direction.</ol>
+      <ol> B. Take a left turn.</ol>
+      <ol> C. Take a right turn.</ol>
+
+</ul>
+      <ul>3. The snake dies upon contact with its own body or a wall.</ul>
+
+      Deep Learning Challenge:
+
+      <ul>The challenge is essentially creating using deep learning to build a neural network that
+      would learn playing the game maximizing the score in a form of intersection between
+      modern Deep Learning and Artificial Intelligence.</ul>
+    		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Simulation</h2>
+
+        <p>
+          A simulation will be used to simultae the process of the game and train the model. It will generate a random position for the apple each time it eaten and for each game.
+          It will take direction of next movement of snake from neural network and send back a feedback about the status of snake.
+
+		    </p>
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+          Autonomous Agents in Snake Game via
+Deep Reinforcement is a publication published in July 2018 which solved this problem by entering the captions taking from a simulator into CNN layers then one fully connected component to detect snake and apple positions, then it enters these results on DQN Layers, Achieving following results:
+		</p>
+
+    <br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/litres.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/res0.PNG" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/litmod.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+          <p>
+            This study takes an approach which merges both neural networks and a genetic algorithm to get more accuracy.
+             The genetic algorithm (GA) and neural network(NN) play the snake game, and Instead of backpropagation, Weights will be updated using GA to find the best parameters.
+            The Implementation will go through these steps:
+          <li>Determine neural network architecture.</li>
+          <li>Creating an initial population and fitness function (can use some factors from similar models which attack the same problem)</li>
+          <li>Play a game for each individual in the population and sort each individual in the population based on the fitness function score.</li>
+          <li>Select a few top individuals from the population and create the remaining population from these top selected individuals using Crossover and mutation.</li>
+          <li>The new population is created (meaning the next generation).</li>
+          <li>And so on..</li><br>
+          The fitness function will be computed based on some rules:<br>
+          <li>The number of points snake collected (+ve reward)</li>
+          <li>Snake hits itself or the border (-ve reward)</li>
+          <li>Snake is just moving around itself (-ve reward)</li><br>
+
+          Input of neutal Network:
+          <li>Is the right direction blocked</li>
+          <li>Is the left direction blocked</li>
+          <li>Is the front direction blocked </li>
+          <li>Snake length</li>
+          <li>The direction of the head of the snake</li>
+          <li>The Vector direction between head of snake and apple</li>
+          </p>
+          Population Size: 300
+          Number of Generations: 500
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/pra.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/nn.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/res1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      This graph repersents in which generation snake achieve new max score. x-axis: Max score, y-axis: Generation Number
+
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources/images/res2.png" class="img-fluid text-center">
+        </div>
+
+        <br/> <!-- Empty Line after the image -->
+        This graph repersent number of apple eaten by snake in each generation. x-axis: Number of eaten apples, y-axis: Generation Number
+
+
+        <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources/images/res3.png" class="img-fluid text-center">
+          </div>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+	 	<ul>
+		  <li>Programming Language: Python</li>
+      <li>Environment: Our local machines and Google Colab</li>
+		  <li>Training time =~ 05 hours</li>
+		  <li>Number of Generations = 500</li>
+      <li>Generation Size = 300</li>
+		  <li>We can't show our simulator on Google Colab so sometimes we use our local machines </li>
+		</ul>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+        This project is a proof of concept which is introduced in December 2017 by Uber AI Labs. It published a paper which is related to the topic of neuroevolution, a practice where deep neural networks are optimized by evolutionary algorithms. One of them is “Deep Neuroevolution: Genetic Algorithms are a Competitive Alternative for Training Deep Neural Networks for Reinforcement Learning” which deduces that:
+        “Using a simple Genetic Algorithm (GA) it is possible to optimize DNNs and that GAs are a competitive alternative to gradient based methods when applied to Reinforcement Learning (RL) tasks such as learning to play Atari games, simulated humanoid locomotion or deceptive maze problems.”
+		</p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+
+		<ol>
+		  <li><a href="https://en.wikipedia.org/wiki/Snake_(video_game_genre)">Problem Statement URL</a></li>
+      <li><a href="https://www.researchgate.net/publication/327638529_Autonomous_Agents_in_Snake_Game_via_Deep_Reinforcement_Learning">Literature</a></li>
+		  <li><a href="https://drive.google.com/file/d/1q6CibSuwsuVv9QaTcyKg5OEss493KLuh/view?usp=sharing">Model Reference URL</a></li>
+      <li><a href="https://books.google.com.eg/books?id=xLd9DwAAQBAJ&pg=PA150&lpg=PA150&dq=fitness[max_fitness_idx]%20%3D%20-1000000000&source=bl&ots=U4LjI14pS4&sig=ACfU3U0JIaRikm47XyI5f5-u9ek0fBlZ0Q&hl=en&sa=X&ved=2ahUKEwjiu6md_8PpAhVl1uAKHbWHA-gQ6AEwAHoECAoQAQ&fbclid=IwAR2Kq4Q8eUCuAsKqc956d9dJDOc0Y8hKPWKNWM8r_TDmVLyTwQJ1tPo8qxk#v=onepage&q=fitness%5Bmax_fitness_idx%5D%20%3D%20-1000000000&f=false"> Another Resources</a></li>
+		</ol>
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

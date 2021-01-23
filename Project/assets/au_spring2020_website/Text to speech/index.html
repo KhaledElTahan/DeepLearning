@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Text to speech project</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">CS435 Introduction to Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Text to speech</h1>
+        <ul class="list-unstyled">
+          <li>Bassam Ashraf El-Sayed Mohammed Mattar 16</li>
+          <li>Sajed Hassan Kamal Eldeen Almorsy 27</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+			Our project is concerned with text to speech conversion. Simply it takes text as input and generate a human speech voice speaking this text.
+This feature has many applications such as helping mute people communicate easily and also help people who lost their voice to bring it back.
+This is not an easy problem and has a lot of challenges so it will be a good opportunity to learn one of the hottest problems in the deep learning field.
+		</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+        <p>
+			LJ-speech dataset is audio and transcript pairs that contain almost 24 hours of labeled single actress voice recording.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+        <p>
+          Input: The examination and testimony of the experts enabled the Commission to conclude that five shots may have been fired.
+          <br/>
+          Output:
+              <audio controls>
+                <source src="resources/sound/eximination.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+          <br/>
+          Input: Many animals of even complex structure which live parasitically within others are wholly devoid of an alimentary cavity.
+          <br/>
+          Ouput: 
+              <audio controls>
+      <source src="resources/sound/many.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/tacotron 2.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+        <p>
+          the metric used to compare between models is mean opinion source(MOS).
+				</p>
+        <div class="content">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">MOS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Tacotron 2</th>
+                <td>4.526</td>
+              </tr>
+              <tr>
+                <th scope="row">WaveNet(Linguistic)</th>
+                <td>4.341</td>
+              </tr>
+              <tr>
+                <th scope="row">WaveNet(L+F)</th>
+                <td>4.21</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+		<br/> <!-- Empty Line before the image -->
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+        <p>
+      We selected Tacotron 2 to use it as a solution for our problem to get better performance as it is giving the state of the art results.
+And this model consists of two components:
+		</p>
+		<ol>
+ 		<li> 
+   			recurrent sequence-to-sequence feature prediction network with attention which predicts a sequence of mel spectrogram frames from an input character sequence.
+      </li>
+      <li>
+				A modified version of WaveNet which generates time-domain waveform samples conditioned on the predicted mel spectrogram frames.
+      </li>
+    </ol>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/proposed_model.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+        <p>
+		</p>
+		<h5 class="mt-5">Update #1: Used word embeddings</h5>
+		<p>
+			The proposed update is to add word embeddings along with character embeddings and this is expected to improve performance as characters have different pronunciation according to its location in the word and this information is given by word embeddings. We also noticed that the original model has problem of generating un-necessary acoustic units in some cases and we hope introducing word embeddings will solve this problem.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+        <p>
+We compare our output quality using mean opinion source(MOS) metric .
+We generate paired samples of the original and the proposed model to compare between them.
+We use a google form to collect opinions.
+We use t-test to compare between the original and the proposed model (hypothesy to test: both models quality are equal).
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+		<figure>
+      			<img src="resources/images/results.png" class="img-fluid text-center">
+			<figcaption>Sample of google form response</figcaption>
+		</figure>
+		<figure>
+      			<img src="resources/images/test.png" class="img-fluid text-center">
+			<figcaption>P-value of t-test: can not reject equality of quality</figcaption>
+		</figure>
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+        <p>
+		</p>
+	 	<ul>
+		  <li>Programming framework: PyTorch</li>
+		  <li>Training hardware: google colaboratory</li>
+		  <li>Fine-tuning time(after transfer learning): 10 hours </li>
+		  <li>Number of epochs: ~8 epochs (6000 iterations)</li>
+		  <li>Time per epoch: ~1.25 hours</li>
+		</ul> 
+      </div>
+    </div>
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+			<ul>
+        <li>Any additional information is used always will not hurt the performance.</li>
+        <li>We find that the both models generate a human-like voice and this can be used for an unpleasant action.</li>
+        <li>The proposed model is taking up huge amount of storage in hard disk (1.72GB) relative to the original model which takes only 328MB on hard disk. Our next step is to down size model without hurting the quality.</li>
+        <li>Also, We aim to extend the proposed model to be multilingual and to support multi-voices.</li>
+      </ul>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+		<ol>
+		  <li><a href="https://arxiv.org/pdf/1712.05884.pdf">Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions</a></li>
+      <li><a href="https://arxiv.org/pdf/1612.08083.pdf">GLU function</a></li>
+      <li><a href="https://keithito.com/LJ-Speech-Dataset/">LJ-Speech-Dataset</a></li>
+		</ol> 
+	  </div>
+	</div>
+  </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
