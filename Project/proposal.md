@@ -4,46 +4,46 @@ Perhaps the most important delivery since all your term work depends on it. You 
 
 ## Requirements
 
-* The proposed problem statement and its motivation.
-* Current state of the art accuracy for the proposed problem.
-* A short survey of available models and solutions for the proposed problem.
-* A detailed description of the model to be used from literature to build on. Also mention why you will use this particular model.
-* The proposed updates to the literature model. Also mention what benefit do you expect from this update and why you think it is a good idea to try it.
-* Write about how will you evaluate your results, what kind of evaluation metric you will use to compare your results, and what types of plots/graphs will be used to point out the comparison results.
-* A survey of available datasets for your course project problem. If your proposed problem is a reinforcement learning problem, then provide a survey of available environments that your model can work on.
-* A detailed description of the dataset (or environment for reinforcement learning) to be used. Also mention why will you use this particular dataset.
-* Your graduation project brief problem statement, even if it is not the same as the proposed course problem statement.
-* If your proposal is related to your graduation project, point out the differences that will
+1. The proposed problem statement and its motivation.
+2. Current state of the art accuracy for the proposed problem.
+3. A short survey of available models and solutions for the proposed problem.
+4. A detailed description of the model to be used from literature to build on. Also mention why you will use this particular model.
+5. The proposed updates to the literature model. Also mention what benefit do you expect from this update and why you think it is a good idea to try it.
+6. Write about how will you evaluate your results, what kind of evaluation metric you will use to compare your results, and what types of plots/graphs will be used to point out the comparison results.
+7. A survey of available datasets for your course project problem. If your proposed problem is a reinforcement learning problem, then provide a survey of available environments that your model can work on.
+8. A detailed description of the dataset (or environment for reinforcement learning) to be used. Also mention why will you use this particular dataset.
+9. Your graduation project brief problem statement, even if it is not the same as the proposed course problem statement.
+10. If your proposal is related to your graduation project, point out the differences that will
 be made between this problem statement and your graduation project problem statement.
-* Mention all available online resources/papers you will collect during the survey.
+11. Mention all available online resources/papers you will collect during the survey.
 
 ## Guidelines for choosing the problem
 
 Those guidelines are not mandatory, however, they might help you avoiding struggles past students faced.
 
-### Resources
+### 1. Resources
 
 The following are great hubs to search for a paper with code.
 
 * [Papers with Code SOTA](https://paperswithcode.com/sota)
 * [Made with ML](https://madewithml.com/)
 
-### Problem Domain
+### 2. Problem Domain
 
 I highly recommend you to avoid any problem domain that works with videos unless you're sure the training time is feasible.
 
-### Code
+### 3. Code
 
 I recommend you to find an already implemented paper and work on top of it, but the implementation code should follow the next guidelines for smooth future updates.
 
 * Framework: Choose recent code with recent framework, for example tensorflow 2.x or pytorch.
 * Weights: Make sure the pretrained weights are already provided.
 
-### Dataset
+### 4. Dataset
 
 Make sure the dataset is not huge to avoid problems for downloading, preprocessing, loading on memory (RAM), and training time.
 
-### Training Resources & Time
+### 5. Training Resources & Time
 
 Most common problem is that you cannot train the network due to the lack of resources to meet the required training time, make sure you have this in mind while selecting your problem.
 
@@ -61,7 +61,7 @@ The following are selected proposals from past years, I highly recommend you to 
 
 **Note**: those proposals might have been made with different requirements, just because any of them doesn't meet any of our requirements doesn't give you the ability to do the same.
 
-## FAQ
+## FAQs
 
 ### 1. What happens next?
 
