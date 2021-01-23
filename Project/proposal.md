@@ -87,6 +87,6 @@ The following are some examples of unacceptable work in proposals:
 
 You need to be precise, discrete, and organized.
 
-### 4. Can I use the same problem proposed in selected proposals?
+### 4. Can I use the same problem proposed in selected proposals or past project website?
 
 Unless you provide a major update I will most probably reject your proposal.
