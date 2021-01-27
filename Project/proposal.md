@@ -17,6 +17,10 @@ Perhaps the most important delivery since all your term work depends on it. You 
 be made between this problem statement and your graduation project problem statement.
 11. Mention all available online resources/papers you will collect during the survey.
 
+## Deliverables
+
+1. A quality-document containing the requirements.
+
 ## Guidelines for choosing the problem
 
 Those guidelines are not mandatory, however, they might help you avoiding struggles past students faced.
@@ -47,6 +51,14 @@ Make sure the dataset is not huge to avoid problems for downloading, preprocessi
 
 Most common problem is that you cannot train the network due to the lack of resources to meet the required training time, make sure you have this in mind while selecting your problem.
 
+You need to ask your self the following questions:
+
+1. Can I train the model on a local machine?
+2. Can I train the model on Google Colab?
+3. Can I train the model on other cloud service?
+
+If you have an access to credit card, then [this tutorial: 'Using Azure Free 200$ Credit for Deep Learning'](https://youtu.be/EFVU8EnibXw) might be beneficial to you.
+
 ## Selected Proposals
 
 The following are selected proposals from past years, I highly recommend you to take a look on them before writing your proposal.
@@ -59,7 +71,7 @@ The following are selected proposals from past years, I highly recommend you to 
 * [Artistic Style Transfer For Videos](assets/selected_proposals/style_transfer.pdf)
 * [Anomaly detection using AEs](assets/selected_proposals/anomaly_detection.pdf)
 
-**Note**: those proposals might have been made with different requirements, just because any of them doesn't meet any of our requirements doesn't give you the ability to do the same.
+**Note**: those proposals might have been made under different requirements, just because any of them doesn't meet any of our requirements doesn't give you the ability to do the same.
 
 ## FAQs
 

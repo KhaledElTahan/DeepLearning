@@ -12,11 +12,11 @@ You can check the past project websites:
 
 You're required to submit the following:
 
-1. Project Proposal
+1. Project Proposal (25% of the grades)
 2. Proposal Update
-3. Project Milestone 1
-4. Project Milestone 2
-5. Final Presentation
+3. Project Milestone 1 (25% of the project grades)
+4. Project Milestone 2 (10% of the project grades)
+5. Final Presentation (40% of the project grades)
 
 According to this [timeline](https://docs.google.com/spreadsheets/d/1vb0EfwRyeltQNH-SbcnNFc-dPj7bs6iipGG_t-HpPVI/edit?usp=sharing).
 
