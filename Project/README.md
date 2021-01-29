@@ -18,7 +18,7 @@ You're required to submit the following:
 4. Project Milestone 2 (10% of the project grades)
 5. Final Presentation (40% of the project grades)
 
-According to this [timeline](https://docs.google.com/spreadsheets/d/1vb0EfwRyeltQNH-SbcnNFc-dPj7bs6iipGG_t-HpPVI/edit?usp=sharing).
+According to the provided term timeline.
 
 ## 3 - Project Proposal
 

@@ -2,7 +2,7 @@
 
 Perhaps the most important delivery since all your term work depends on it. You are required to submit a **quality-document** containing the following requirements.
 
-## Requirements
+## Proposal Document Requirements
 
 1. The proposed problem statement and its motivation.
 2. Current state of the art accuracy for the proposed problem.
