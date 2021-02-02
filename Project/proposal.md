@@ -12,9 +12,8 @@ Perhaps the most important delivery since all your term work depends on it. You 
 6. Write about how will you evaluate your results, what kind of evaluation metric you will use to compare your results, and what types of plots/graphs will be used to point out the comparison results.
 7. A survey of available datasets for your course project problem. If your proposed problem is a reinforcement learning problem, then provide a survey of available environments that your model can work on.
 8. A detailed description of the dataset (or environment for reinforcement learning) to be used. Also mention why will you use this particular dataset.
-9. Your graduation project brief problem statement, even if it is not the same as the proposed course problem statement.
-10. If your proposal is related to your graduation project, point out the differences that will
-be made between this problem statement and your graduation project problem statement.
+9. **Your graduation project (or thesis) brief problem statement, even if it is not the same as the proposed course problem statement.**
+10. **If your proposal is related to your graduation project (or thesis), point out the differences that will be made between this problem statement and your graduation project (thesis) problem statement.**
 11. Mention all available online resources/papers you will collect during the survey.
 
 ## Deliverables
@@ -103,3 +102,7 @@ You need to be precise, discrete, and organized.
 ### 4. Can I use the same problem proposed in selected proposals or past project website?
 
 Unless you provide a major update I will most probably reject your proposal.
+
+### 5. Can I use the same problem statement I use in my graduation project (or thesis)?
+
+You can use the same domain, but you have to tackle a different issue other than the one you're investigating in your graduation project (thesis).
