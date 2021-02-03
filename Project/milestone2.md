@@ -10,6 +10,7 @@ At this point, **you are expected to fully have implemented your proposed soluti
 4. All the progress done. Highlight the progress during this milestone.
 5. Plots and graphs that show your results and the evaluation difference between the original model and your solution.
 6. Next steps until the final delivery.
+7. Each team member contribution. You should state only the contribution in the technical work, so designing the presentation for example shouldn't be included.
 
 ## Deliverables
 

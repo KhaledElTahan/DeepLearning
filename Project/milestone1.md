@@ -13,6 +13,7 @@ You are required to make a presentation containing the following.
 7. Initial Results.
 8. Any findings that point out your effort and your work.
 9. Next steps and timeline for the rest of the project.
+10. Each team member contribution. You should state only the contribution in the technical work, so designing the presentation for example shouldn't be included.
 
 ## Deliverables
 

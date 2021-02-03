@@ -15,6 +15,7 @@ Perhaps the most important delivery since all your term work depends on it. You 
 9. **Your graduation project (or thesis) brief problem statement, even if it is not the same as the proposed course problem statement.**
 10. **If your proposal is related to your graduation project (or thesis), point out the differences that will be made between this problem statement and your graduation project (thesis) problem statement.**
 11. Mention all available online resources/papers you will collect during the survey.
+12. Each team member contribution. You should state only the contribution in the technical work, so writing the document for example shouldn't be included.
 
 ## Deliverables
 

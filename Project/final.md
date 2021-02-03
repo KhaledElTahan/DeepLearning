@@ -11,8 +11,8 @@ The final delivery of the project, you will need to present **all** the work don
 3. Final model architecture (in figures and diagrams only), explain if proposed parts weren't feasible which made you adopt new changes.
 4. Graphs and plots that show your results.
 5. A live demo of your working model.
-6. Team members contribution
-7. Conclusion and future work (including lessons learned and interesting findings).
+6. Conclusion and future work (including lessons learned and interesting findings).
+7. Each team member contribution. You should state only the contribution in the technical work, so (designing the presentation or the poster, creating the website, writing the document for example) shouldn't be included.
 
 ## Selected Presentations
 
