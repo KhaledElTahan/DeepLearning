@@ -19,7 +19,7 @@
 ## 3 - Introduction to Colaboratory
 
 * Colaboratory is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud.
-* You can get all the information you need about how to use Colaboratory from [this link](https://colab.research.google.com/notebooks/welcome.ipynbscrollTo=-Rh3-Vt9Nev9).
+* You can get all the information you need about how to use Colaboratory from [this link](https://colab.research.google.com/notebooks/welcome.ipynb).
 
 ## 4 - Requirements
 
