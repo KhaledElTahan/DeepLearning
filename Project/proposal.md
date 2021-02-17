@@ -5,7 +5,7 @@ Perhaps the most important delivery since all your term work depends on it. You 
 ## Proposal Document Requirements
 
 1. The proposed problem statement and its motivation.
-2. Current state of the art accuracy for the proposed problem.
+2. Current state of the art results (results of correct evaluation metrics, for example accuracy in some class classification problems) for the proposed problem.
 3. A short survey of available models and solutions for the proposed problem.
 4. A detailed description of the model to be used from literature to build on. Also mention why you will use this particular model.
 5. The proposed updates to the literature model. Also mention what benefit do you expect from this update and why you think it is a good idea to try it.
