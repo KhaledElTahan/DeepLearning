@@ -23,8 +23,8 @@
 
 ## 4 - Requirements
 
-* Solve [part 1](lab1_part1.ipynb) of the assignment and deliver a filled ipython notebook that shows your best outpout found in your experiments in this part.
-* Solve [part 2](lab1_part2.ipynb) of the assignment and deliver a filled ipython notebook that shows your best outpout found in your experiments in this part.
+* Solve [part 1](lab1_part1.ipynb) of the assignment and deliver a filled ipython notebook that shows the best output found in your experiments in this part.
+* Solve [part 2](lab1_part2.ipynb) of the assignment and deliver a filled ipython notebook that shows the best output found in your experiments in this part.
 * You should deliver a report explaining all your work and your experiments.
 
 ## 5 - FAQ
