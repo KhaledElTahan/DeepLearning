@@ -5,7 +5,7 @@
 ## 1 - Objectives
 
 1. Building a custom CNN model for a classification task.
-2. Using some CNNs case studies (VGG, GoogleLeNet & ResNet).
+2. Using some CNNs case studies (VGG, ResNet & Other use cases).
 3. Use transfer learning on the CNNs case studies.
 4. Use layers freezing with transfer learning.
 
