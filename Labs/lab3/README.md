@@ -25,5 +25,5 @@ You can find [the dataset on Kaggle](https://www.kaggle.com/iarunava/happy-house
 
 ## 3 - Requirements
 
-* Solve [this notebook](lab3.ipynb) of the assignment and deliver a filled ipython notebook that shows the best output found in your experiments in this part.
+* Solve [this notebook](Lab3.ipynb) of the assignment and deliver a filled ipython notebook that shows the best output found in your experiments in this part.
 * You should deliver a PDF report that has tables summarize all your work and experiments.
