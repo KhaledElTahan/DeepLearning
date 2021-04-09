@@ -4,18 +4,21 @@ Perhaps the most important delivery since all your term work depends on it. You 
 
 ## Proposal Document Requirements
 
-1. The proposed problem statement and its motivation.
+1. The proposed problem statement and its motivation. Use figures and plots to explan your problem statement.
 2. Current state of the art results (results of correct evaluation metrics, for example accuracy in some class classification problems) for the proposed problem.
-3. A short survey of available models and solutions for the proposed problem.
-4. A detailed description of the model to be used from literature to build on. Also mention why you will use this particular model.
-5. The proposed updates to the literature model. Also mention what benefit do you expect from this update and why you think it is a good idea to try it.
-6. Write about how you will evaluate your results, what kind of evaluation metric you will use to compare your results, and what types of plots/graphs will be used to point out the comparison results.
-7. A survey of available datasets for your course project problem. If your proposed problem is a reinforcement learning problem, then provide a survey of available environments that your model can work on.
-8. A detailed description of the dataset (or environment for reinforcement learning) to be used. Also mention why will you use this particular dataset.
-9. **Your graduation project (or thesis) brief problem statement, even if it is not the same as the proposed course problem statement.**
-10. **If your proposal is related to your graduation project (or thesis), point out the differences that will be made between this problem statement and your graduation project (thesis) problem statement.**
-11. Mention all available online resources/papers you will collect during the survey.
-12. Each team member contribution. You should state only the contribution in the technical work, so writing the document for example shouldn't be included.
+3. A survey of available datasets for your course project problem. If your proposed problem is a reinforcement learning problem, then provide a survey of available environments that your model can work on. This survey should include, examples of the dataset (In figures if possible, I want to see an input and an output), a website link for the dataset, the dataset storage size (in MBs or GBs), the dataset examples size (number of examples in training/validation/testing splits), and any other important information.
+4. A detailed description of the dataset (or environment for reinforcement learning) to be used. Also mention why will you use this particular dataset.
+5. The selected dataset shouldn't exceed 20 GB (requirement, but 15GB recommended), if otherwise, please explain why do you find using this dataset is feasible. 
+6. A short survey of available models and solutions for the proposed problem. This survey should include, figures and plots to explain each model, reference paper for each model, public repository code link, information about frameworks used in the code, information about available weights and model zoo, information about training resources required for them if available, results of each model and comparison between them in a table, and any other important information.
+7. A detailed description of the model to be used from literature to build on. Also mention why you will use this particular model.
+8. The source code link for the selected baseline model. It should be written in a recent framework, as Tensorflow 2.x or TF.Keras or PyTorch and in few files (20 code files or less). If there's no available source code, or the source code doesn't use the mentioned frameworks, please jusitfy how will you approach your project without them.
+9. The model weights or model zoo URL. If there're no model weightss, please jusitfy how will you approach your project without them.
+10. The proposed updates to the literature model. Also mention what benefit do you expect from this update and why you think it is a good idea to try it.
+11. Write about how you will evaluate your results, what kind of evaluation metric you will use to compare your results, and what types of plots/graphs will be used to point out the comparison results.
+12. **Your graduation project (or thesis) brief problem statement, even if it is not the same as the proposed course problem statement.**
+13. **If your proposal is related to your graduation project (or thesis), point out the differences that will be made between this problem statement and your graduation project (thesis) problem statement.**
+14. Mention all available online resources/papers you will collect during the survey.
+15. Each team member contribution. You should state only the contribution in the technical work, so writing the document for example shouldn't be included.
 
 ## Deliverables
 
@@ -37,18 +40,11 @@ The following are great hubs to search for a paper with code.
 
 I highly recommend you to avoid any problem domain that works with videos unless you're sure the training time is feasible.
 
-### 3. Code
-
-I recommend you to find an already implemented paper and work on top of it, but the implementation code should follow the next guidelines for smooth future updates.
-
-* Framework: Choose recent code with recent framework, for example tensorflow 2.x or pytorch.
-* Weights: Make sure the pretrained weights are already provided.
-
-### 4. Dataset
+### 3. Dataset
 
 Make sure the dataset is not huge to avoid problems for downloading, preprocessing, loading on memory (RAM), and training time.
 
-### 5. Training Resources & Time
+### 4. Training Resources & Time
 
 Most common problem is that you cannot train the network due to the lack of resources to meet the required training time, make sure you have this in mind while selecting your problem.
 
