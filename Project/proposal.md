@@ -19,8 +19,9 @@ Perhaps the most important delivery since all your term work depends on it. You 
 13. Write in details about how you will evaluate your results, what kind of evaluation metric you will use to compare your results, and what types of plots/graphs will be used to point out the comparison results.
 14. **Your graduation project (or thesis) brief problem statement, even if it is not the same as the proposed course problem statement.**
 15. **If your proposal is related to your graduation project (or thesis), point out the differences that will be made between this problem statement and your graduation project (thesis) problem statement.**
-16. Mention all available online resources/papers you will collect during the survey.
-17. Each team member contribution. You should state only the contribution in the technical work, so writing the document for example shouldn't be included.
+16. List all other machien learning, deep learning, computer vision, natural language processing, pattern recognition or any related data science field project you have particiapted in, especially if you think they're close to your problem statement. 
+17. Mention all available online resources/papers you will collect during the survey.
+18. Each team member contribution. You should state only the contribution in the technical work, so writing the document for example shouldn't be included.
 
 ## Deliverables
 
@@ -105,3 +106,7 @@ Unless you provide a major update I will most probably reject your proposal.
 ### 5. Can I use the same problem statement I use in my graduation project (or thesis)?
 
 You can use the same domain, but you have to tackle a different issue other than the one you're investigating in your graduation project (thesis).
+
+### 6. What happens if I miss listing any of the projects I participated in that are similar to my course project?
+
+If we find out that any other course you were enlisted in with a similar problem statement and you haven't notified us, the cheating and plagiarism policy will be applied.

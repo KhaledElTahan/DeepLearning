@@ -1,6 +1,6 @@
 # Project Final Delivery
 
-The final delivery of the project, you will need to present **all** the work done for the project, at this phase you're required to submit several deliverables and make a presentation that has the following requirements.
+The final delivery of the project, you will need to finalize your work, make any necessary updates on your code/research and present **all** the work done for the project, at this phase you're required to submit several deliverables and make a presentation that has the following requirements.
 
 ## The Presentation Requirements
 
@@ -101,11 +101,13 @@ The following is a selected list of previous terms publication-quality papers:
 
 ## Notes
 
-1. You have to make the presentation using the submitted slides, a penalty is applied otherwise.
-2. Your presentation will take only *ten minutes*, three of which are reserved for instructors, and your colleagues questions/feedback. So, you need to make sure your presentation doesn't exceed *seven minutes*. Practice the presentation and make sure it fits within 7 minutes.
-3. **The recorded video of the presentation will be submitted days before your live presentation. Make sure not to get confused by this point.**
-4. The recorded video of the presentation should not exceed seven minutes and should be at least of five minutes.
-5. The provided selected presentations, selected posters, and website might have been made under different requirements, just because any of them doesn't meet any of our requirements doesn't give you the ability to do the same.
-6. For the live demo, We want to see a running application of your model with good illustrative examples or use cases. However, you decide which use case you will present to us and how to do it, no specific requirements nor instructions for it.
-7. Each of the bonus requirements stands alone, you can submit either of them and get a bonus grades for it.
-8. For more information about the Student Research Competition, reach to the course professor.
+1. The presentation should be about all the course project, not the progress during final delivery only.
+2. You are to continue your code/research work during this phase to finish all your proposed updates beside working on the other requirements.
+3. You have to make the presentation using the submitted slides, a penalty is applied otherwise.
+4. Your presentation will take only *ten minutes*, three of which are reserved for instructors, and your colleagues questions/feedback. So, you need to make sure your presentation doesn't exceed *seven minutes*. Practice the presentation and make sure it fits within 7 minutes.
+5. **The recorded video of the presentation will be submitted days before your live presentation. Make sure not to get confused by this point.**
+6. The recorded video of the presentation should not exceed seven minutes and should be at least of five minutes.
+7. The provided selected presentations, selected posters, and website might have been made under different requirements, just because any of them doesn't meet any of our requirements doesn't give you the ability to do the same.
+8. For the live demo, We want to see a running application of your model with good illustrative examples or use cases. However, you decide which use case you will present to us and how to do it, no specific requirements nor instructions for it.
+9. Each of the bonus requirements stands alone, you can submit either of them and get a bonus grades for it.
+10. For more information about the Student Research Competition, reach to the course professor.
