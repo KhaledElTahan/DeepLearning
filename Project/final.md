@@ -10,7 +10,7 @@ The final delivery of the project, you will need to finalize your work, make any
 2. Proposed model architecture (in figures and diagrams only).
 3. Final model architecture (in figures and diagrams only), explain if proposed parts weren't feasible which made you adopt new changes.
 4. Graphs and plots that show your results.
-5. A live demo of your working model.
+5. A **live** demo of your working model.
 6. Conclusion and future work (including lessons learned and interesting findings).
 7. Each team member contribution. You should state only the contribution in the technical work, so (designing the presentation or the poster, creating the website, writing the document for example) shouldn't be included.
 
@@ -24,12 +24,14 @@ The final delivery of the project, you will need to finalize your work, make any
 
 1. Presentation slides containing the requirements.
 2. A recorded video of your presentation, this will give you a chance to rehearse and also be a point of reference for your work.
-3. A live presentation showing your work.
-4. Project Code.
-5. A poster for your project (soft copy).
-6. Project Website.
-7. **(BONUS)**: Publication-Quality paper.
-8. **(BONUS)**: Enroll in the Student Research Competition of one of the ACM SIGs after consultation with the course instructor about the quality of the work and its relevance to a specific SIG.
+3. A recorded video of your model demo.
+4. A **live** presentation showing your work.
+5. A **live** demo of your working model.
+6. Project Code.
+7. A poster for your project (soft copy).
+8. Project Website.
+9. **(BONUS)**: Publication-Quality paper.
+10. **(BONUS)**: Enroll in the Student Research Competition of one of the ACM SIGs after consultation with the course instructor about the quality of the work and its relevance to a specific SIG.
 
 ## The Project Code
 
@@ -39,6 +41,16 @@ The submitted code must satisfy the following requirements:
 2. A list of all dependencies and installation instructions to get the code fully working.
 3. Data files, provide permanent links for huge datasets or upload the dataset directly to the submission form if tiny (less than 100 MB).
 4. Your model weights, a permanent link if possible or upload it directly to the submission form if tiny (less than 1 GB).
+
+## The Project Demo
+
+It's required to deliver a live demo during your presentation, in this demo you are required to show us the model is practice, we need to see the model fed with clear examples and to see actual output.
+
+For example, in the case of image classification, we need to see the input image, the output class and how confident the model is.
+
+Don't show us the model accuracy or the training result, this part should show us few examples on how this model could be used in real life practice.
+
+**Note**: You're also required to deliver a pre-recorded video of your model demo, this video **should match exactly** the live demo you will make during your presentation to ensure fairness, any mismatch will be considered a fraud and penalized accordingly.
 
 ## The Project Poster
 
